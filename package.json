@@ -1,0 +1,11 @@
+{
+  "name": "psb-amtsilati-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API pendaftaran & cek status PSB Amtsilati (Vercel Serverless Functions + Postgres + Blob)",
+  "dependencies": {
+    "@vercel/postgres": "latest",
+    "@vercel/blob": "latest",
+    "formidable": "latest"
+  }
+}

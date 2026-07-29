@@ -1,0 +1,3597 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSB Amtsilati — Pondok Pesantren Darul Falah Amtsilati</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-900:#00332b;
+    --green-800:#004d40;
+    --green-700:#0a5d4e;
+    --gold:#ffd700;
+    --gold-deep:#c9a600;
+    --cream:#fdfaf2;
+    --ink:#122320;
+    --ink-soft:#4a5f5a;
+    --white:#ffffff;
+    --border-soft:#e6e1d2;
+    --check-green:#2fbf71;
+    --red-bright:#e8362b;
+    --insta-blue:#3897f0;
+    --radius-sm:8px;
+    --radius-md:14px;
+    --radius-lg:24px;
+    --shadow-soft:0 14px 34px rgba(0,51,43,.14);
+    --font-display:'Poppins',sans-serif;
+    --font-body:'Inter',sans-serif;
+    --font-arabic:'Amiri',serif;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  ul{ list-style:none; }
+  a{ text-decoration:none; color:inherit; }
+  button{ font-family:inherit; cursor:pointer; border:none; background:none; }
+  .container{ width:100%; max-width:1220px; margin:0 auto; padding:0 24px; }
+  section{ scroll-margin-top:120px; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+  }
+
+  /* ===================== SISTEM TAB / SLIDE KONTEN ===================== */
+  .tab-content{ display:none; }
+  .tab-content.active{ display:block; animation:tabFadeIn .5s ease; }
+  @keyframes tabFadeIn{
+    from{ opacity:0; transform:translateY(16px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  /* ===================== TOP BAR ===================== */
+  .topbar{ background:var(--green-900); color:var(--gold); font-size:.82rem; }
+  .topbar .container{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:9px 24px; gap:10px 24px; flex-wrap:wrap;
+  }
+  .topbar-left, .topbar-right{ display:flex; align-items:center; gap:22px; flex-wrap:wrap; }
+  .topbar a, .topbar span.info{
+    display:inline-flex; align-items:center; gap:7px;
+    color:var(--gold); font-weight:500; letter-spacing:.2px;
+    opacity:.95; transition:opacity .2s;
+  }
+  .topbar a:hover{ opacity:1; text-decoration:underline; text-underline-offset:3px; }
+  .topbar svg{ width:14px; height:14px; flex-shrink:0; }
+
+  /* ===================== NAVBAR ===================== */
+  .navbar{
+    background:var(--white);
+    box-shadow:0 2px 16px rgba(0,0,0,.06);
+    position:sticky; top:0; z-index:200;
+  }
+  .navbar .container{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px; gap:20px;
+  }
+  .brand{ display:flex; align-items:center; gap:12px; min-width:0; }
+  .brand-mark{
+    width:50px; height:50px; border-radius:50%; flex-shrink:0;
+    background:radial-gradient(circle at 32% 28%, var(--green-700), var(--green-900));
+    display:flex; align-items:center; justify-content:center; position:relative;
+  }
+  .brand-mark::after{
+    content:''; position:absolute; inset:4px; border-radius:50%;
+    border:1.4px dashed var(--gold);
+  }
+  .brand-mark span{
+    font-family:var(--font-display); font-weight:800; color:var(--gold);
+    font-size:1rem; letter-spacing:.5px; position:relative;
+  }
+  .brand-text{
+    font-family:var(--font-display); font-weight:700; font-size:.68rem;
+    letter-spacing:.35px; line-height:1.4; color:var(--ink-soft);
+    text-transform:uppercase; max-width:330px;
+  }
+  .brand-text b{ display:block; color:var(--green-800); font-size:.82rem; letter-spacing:.3px; margin-top:1px; }
+
+  .nav-toggle{
+    display:none; flex-direction:column; justify-content:center; gap:5px;
+    width:40px; height:40px; flex-shrink:0;
+  }
+  .nav-toggle span{ width:24px; height:2.5px; background:var(--green-900); border-radius:2px; transition:.25s ease; }
+  .nav-toggle.is-open span:nth-child(1){ transform:translateY(7.5px) rotate(45deg); }
+  .nav-toggle.is-open span:nth-child(2){ opacity:0; }
+  .nav-toggle.is-open span:nth-child(3){ transform:translateY(-7.5px) rotate(-45deg); }
+
+  .nav-menu{ display:flex; align-items:center; gap:2px; flex-wrap:wrap; }
+  .nav-menu li a{
+    display:inline-block; padding:10px 13px; white-space:nowrap;
+    font-family:var(--font-display); font-size:.78rem; font-weight:600;
+    letter-spacing:.3px; color:var(--ink-soft); border-radius:8px; transition:.2s;
+  }
+  .nav-menu li a:hover{ color:var(--green-800); background:rgba(0,77,64,.07); }
+  .nav-menu li.active a{ color:var(--green-800); background:rgba(0,77,64,.09); }
+  .nav-menu li.cta a{
+    background:var(--green-800); color:var(--gold); padding:10px 20px; border-radius:24px;
+    box-shadow:0 6px 16px rgba(0,77,64,.28);
+  }
+  .nav-menu li.cta a:hover{ background:var(--green-900); }
+
+  /* ===================== HERO ===================== */
+  .hero{
+    background:
+      repeating-linear-gradient(45deg, rgba(255,215,0,.045) 0 1.5px, transparent 1.5px 42px),
+      repeating-linear-gradient(-45deg, rgba(255,215,0,.045) 0 1.5px, transparent 1.5px 42px),
+      linear-gradient(160deg, var(--green-800) 0%, var(--green-900) 100%);
+    color:var(--white);
+    padding:56px 0 64px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .container{
+    display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;
+  }
+
+  .eyebrow-arabic{
+    font-family:var(--font-arabic); direction:rtl; font-size:1.2rem;
+    color:var(--gold); opacity:.9; margin-bottom:10px;
+  }
+  .eyebrow-tag{
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(255,215,0,.12); border:1px solid rgba(255,215,0,.35);
+    color:var(--gold); font-family:var(--font-display); font-weight:600;
+    font-size:.7rem; letter-spacing:1.2px; text-transform:uppercase;
+    padding:6px 14px; border-radius:20px; margin-bottom:18px;
+  }
+  .eyebrow-tag::before{ content:''; width:6px; height:6px; border-radius:50%; background:var(--gold); }
+
+  .hero h1{
+    font-family:var(--font-display); font-weight:700; font-size:1.55rem;
+    line-height:1.32; letter-spacing:.2px; color:var(--white);
+  }
+  .hero h1 .accent{
+    display:block; color:var(--gold); font-weight:800; font-size:2rem;
+    letter-spacing:.6px; margin-top:6px;
+  }
+  .hero .subtitle{
+    font-family:var(--font-display); font-weight:600; font-size:1.05rem;
+    letter-spacing:5px; color:rgba(255,255,255,.78); margin-top:10px;
+  }
+
+  .beasantri-title{
+    display:flex; align-items:center; gap:12px;
+    font-family:var(--font-display); font-weight:700; font-size:1.05rem;
+    color:var(--gold); letter-spacing:.5px; text-transform:uppercase;
+    margin-top:30px; margin-bottom:16px;
+  }
+  .beasantri-title::after{ content:''; flex:1; height:1px; background:linear-gradient(90deg, rgba(255,215,0,.55), transparent); }
+
+  .req-list{ display:flex; flex-direction:column; gap:12px; }
+  .req-list li{ display:flex; align-items:flex-start; gap:12px; font-size:.92rem; color:rgba(255,255,255,.92); }
+  .req-list .check{
+    flex-shrink:0; width:22px; height:22px; border-radius:50%;
+    background:var(--check-green); display:flex; align-items:center; justify-content:center;
+    margin-top:1px; box-shadow:0 3px 8px rgba(47,191,113,.35);
+  }
+  .req-list .check svg{ width:12px; height:12px; }
+
+  .fee-box{
+    margin-top:32px; display:flex; align-items:center; gap:18px;
+    background:linear-gradient(135deg, var(--green-700), var(--green-900));
+    border:1px solid rgba(255,215,0,.4);
+    border-radius:var(--radius-md); padding:18px 22px; max-width:460px;
+    position:relative; box-shadow:var(--shadow-soft);
+  }
+  .fee-seal{
+    flex-shrink:0; width:56px; height:56px; border-radius:50%;
+    border:1.5px dashed var(--gold); display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display); font-weight:800; color:var(--gold); font-size:.62rem;
+    text-align:center; line-height:1.15; letter-spacing:.3px;
+  }
+  .fee-copy-group{ display:flex; flex-direction:column; gap:10px; }
+  .fee-divider{ height:1px; background:rgba(255,215,0,.25); }
+  .fee-copy .fee-label{
+    font-family:var(--font-display); font-weight:600; font-size:.72rem;
+    text-transform:uppercase; letter-spacing:.8px; color:rgba(255,255,255,.75);
+  }
+  .fee-copy .fee-amount{
+    font-family:var(--font-display); font-weight:800; font-size:1.5rem; color:var(--gold); margin-top:3px;
+  }
+  .fee-copy .fee-amount small{ font-size:.85rem; font-weight:600; color:rgba(255,255,255,.8); }
+
+  .cta-daftar{
+    display:inline-flex; align-items:center; gap:10px; margin-top:22px;
+    background:var(--gold); color:var(--green-900); font-family:var(--font-display);
+    font-weight:700; font-size:.92rem; letter-spacing:.3px;
+    padding:14px 28px; border-radius:30px; box-shadow:0 12px 26px rgba(0,0,0,.28);
+    transition:.2s ease;
+  }
+  .cta-daftar:hover{ background:#ffe14d; transform:translateY(-2px); }
+  .cta-daftar svg{ width:17px; height:17px; }
+
+  /* ---------- Slider ---------- */
+  .slider-wrap{ position:relative; }
+  .slider-frame{
+    position:relative; border-radius:var(--radius-lg); overflow:hidden;
+    box-shadow:0 24px 50px rgba(0,0,0,.35); border:6px solid rgba(255,255,255,.08);
+    aspect-ratio:4/3.1;
+  }
+  .slider-track{
+    display:flex; height:100%; transition:transform .55s cubic-bezier(.65,0,.35,1);
+  }
+  .slide{
+    min-width:100%; height:100%; position:relative;
+    display:flex; align-items:flex-end;
+  }
+  .slide-inner{
+    width:100%; height:100%; position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .slide-inner svg{ width:34%; height:34%; opacity:.9; }
+  .slide-caption{
+    position:relative; z-index:2; width:100%;
+    padding:20px 22px 66px;
+    background:linear-gradient(to top, rgba(0,20,17,.82), rgba(0,20,17,0));
+    font-family:var(--font-display); font-weight:600; font-size:.95rem; letter-spacing:.3px;
+  }
+  .slide-caption small{
+    display:block; font-family:var(--font-body); font-weight:500; font-size:.72rem;
+    color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;
+  }
+
+  .slide-1 .slide-inner{ background:linear-gradient(135deg,#0a5d4e,#00332b); }
+  .slide-2 .slide-inner{ background:linear-gradient(135deg,#0e6f5c,#023931); }
+  .slide-3 .slide-inner{ background:linear-gradient(135deg,#00463a,#062e26); }
+  .slide-4 .slide-inner{ background:linear-gradient(135deg,#12796a,#003a30); }
+  .slide-5 .slide-inner{ background:linear-gradient(135deg,#065f52,#00251f); }
+
+  .slider-nav{
+    position:absolute; right:16px; bottom:16px; z-index:3;
+    display:flex; gap:8px;
+  }
+  .slider-nav button{
+    width:38px; height:38px; border-radius:50%;
+    background:rgba(255,255,255,.14); backdrop-filter:blur(4px);
+    border:1px solid rgba(255,255,255,.35);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--white); transition:.2s;
+  }
+  .slider-nav button:hover{ background:var(--gold); color:var(--green-900); border-color:var(--gold); }
+  .slider-nav button svg{ width:16px; height:16px; }
+
+  .slider-dots{
+    position:absolute; left:22px; bottom:24px; z-index:3;
+    display:flex; gap:7px;
+  }
+  .slider-dots button{
+    width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.45); transition:.25s;
+  }
+  .slider-dots button.active{ background:var(--gold); width:22px; border-radius:5px; }
+
+  /* ===================== ALUR PENDAFTARAN ===================== */
+  .section-alur{ background:var(--white); padding:84px 0 90px; }
+  .section-head{ text-align:center; max-width:640px; margin:0 auto 58px; }
+  .section-head .section-eyebrow{
+    display:block; font-family:var(--font-display); font-weight:600; font-size:.72rem;
+    letter-spacing:1.6px; text-transform:uppercase; color:var(--ink-soft); margin-bottom:10px;
+  }
+  .section-head h2{
+    font-family:var(--font-display); font-weight:800; font-size:1.9rem;
+    color:var(--green-800); letter-spacing:.5px;
+  }
+  .section-head .underline{
+    width:64px; height:3px; background:var(--gold); margin:16px auto 0; border-radius:2px;
+  }
+
+  .step-grid{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:36px 28px;
+  }
+  .step-card{
+    flex:1 1 300px; max-width:330px;
+    text-align:center; padding:34px 24px 30px;
+    background:var(--white); border:1px solid var(--border-soft);
+    border-radius:var(--radius-md); transition:.25s ease;
+  }
+  .step-card:hover{
+    box-shadow:var(--shadow-soft); transform:translateY(-5px); border-color:rgba(0,77,64,.25);
+  }
+  .step-number{
+    width:58px; height:58px; margin:0 auto 20px; border-radius:50%;
+    background:var(--green-800); color:var(--gold);
+    font-family:var(--font-display); font-weight:800; font-size:1.35rem;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 20px rgba(0,77,64,.28);
+  }
+  .step-title{
+    font-family:var(--font-display); font-weight:700; font-size:1.02rem;
+    color:var(--ink); margin-bottom:10px; letter-spacing:.2px;
+  }
+  .step-desc{ font-size:.87rem; color:var(--ink-soft); line-height:1.65; }
+  .step-desc a{
+    color:var(--green-800); font-weight:600; text-decoration:underline;
+    text-underline-offset:2px; word-break:break-all;
+  }
+  .step-desc a:hover{ color:var(--gold-deep); }
+
+  /* ===================== INFORMASI ===================== */
+  .section-info{
+    background:
+      repeating-linear-gradient(45deg, rgba(255,215,0,.045) 0 1.5px, transparent 1.5px 42px),
+      repeating-linear-gradient(-45deg, rgba(255,215,0,.045) 0 1.5px, transparent 1.5px 42px),
+      linear-gradient(160deg, var(--green-800) 0%, var(--green-900) 100%);
+    padding:84px 0 90px;
+  }
+  .section-info .section-head .section-eyebrow{ color:rgba(255,255,255,.72); }
+  .section-info .section-head h2{ color:var(--white); }
+  .section-info .section-head .underline{ background:var(--gold); }
+
+  .info-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:30px;
+  }
+  .info-card{
+    border-radius:var(--radius-md); overflow:hidden;
+    box-shadow:0 20px 44px rgba(0,0,0,.28);
+    display:flex; flex-direction:column;
+  }
+  .info-card-header{
+    background:var(--gold); color:#191400;
+    font-family:var(--font-display); font-weight:700; font-size:.98rem;
+    padding:15px 18px; display:flex; align-items:center; gap:9px; letter-spacing:.2px;
+  }
+  .info-card-body{
+    background:var(--red-bright); color:var(--white);
+    padding:22px 20px 24px; flex:1;
+    font-size:.85rem; line-height:1.7;
+  }
+  .info-card-body ul{ display:flex; flex-direction:column; gap:11px; }
+  .info-card-body li{ padding-left:17px; position:relative; }
+  .info-card-body li::before{
+    content:'•'; position:absolute; left:0; top:0;
+    color:rgba(255,255,255,.85); font-weight:700;
+  }
+  .info-card-body strong{ font-weight:700; }
+  .info-note{
+    margin-top:16px; padding-top:14px; border-top:1px solid rgba(255,255,255,.32);
+    font-size:.78rem; font-style:italic; color:rgba(255,255,255,.92);
+  }
+
+  /* ===================== TENTANG / PROFIL & VIDEO YOUTUBE ===================== */
+  .section-profile{ background:var(--white); padding:84px 0 92px; }
+  .profile-subtitle{
+    text-align:center; font-family:var(--font-display); font-weight:600;
+    font-size:1.05rem; color:var(--green-800); margin:-30px 0 42px;
+  }
+
+  .video-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:26px;
+    max-width:1100px; margin:0 auto;
+  }
+  .video-card{
+    position:relative; border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:16/9;
+    box-shadow:0 20px 42px rgba(0,51,43,.22); isolation:isolate; cursor:pointer;
+  }
+  .vm-sky{ position:absolute; inset:0; }
+  .vm-scene{ position:absolute; inset:0; width:100%; height:100%; }
+  .vm-overlay{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(0,20,17,.1) 0%, rgba(0,20,17,.52) 66%, rgba(0,20,17,.85) 100%);
+  }
+  .vm-content{
+    position:absolute; inset:0; z-index:5; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center; padding:18px;
+  }
+  .vm-play{
+    width:56px; height:56px; border-radius:50%; background:#ff0000;
+    display:flex; align-items:center; justify-content:center; margin-bottom:14px;
+    box-shadow:0 8px 20px rgba(0,0,0,.4); transition:.25s ease; flex-shrink:0;
+  }
+  .vm-play svg{ width:19px; height:19px; margin-left:3px; }
+  .video-card:hover .vm-play{ transform:scale(1.08); background:#e60000; }
+  .vm-content h3{
+    font-family:var(--font-display); font-weight:800; color:#fff; font-size:1rem;
+    letter-spacing:.2px; text-shadow:0 3px 12px rgba(0,0,0,.4); line-height:1.35;
+  }
+  .vm-content h3 small{
+    display:block; font-weight:600; font-size:.68rem; letter-spacing:2px;
+    color:var(--gold); margin-top:7px; text-transform:uppercase;
+  }
+  .vm-badge{
+    position:absolute; left:12px; bottom:12px; z-index:6;
+    display:flex; align-items:center; gap:5px;
+    background:rgba(0,0,0,.55); color:#fff; font-size:.64rem; font-weight:600;
+    padding:4px 9px; border-radius:20px;
+  }
+  .vm-badge svg{ width:12px; height:12px; }
+  .vm-duration{
+    position:absolute; right:12px; bottom:12px; z-index:6;
+    background:rgba(0,0,0,.75); color:#fff; font-size:.64rem; font-weight:600;
+    padding:2px 7px; border-radius:4px; letter-spacing:.3px;
+  }
+
+  .vc-profil .vm-sky{ background:linear-gradient(180deg,#bfe4ea 0%,#8fd0d6 36%,#3f9e86 64%,#155843 100%); }
+  .vc-kegiatan .vm-sky{ background:linear-gradient(180deg,#ffe9a8 0%,#f2c65c 38%,#c9922e 66%,#5c3d10 100%); }
+  .vc-sambutan .vm-sky{ background:radial-gradient(circle at 50% 32%, #2a5f4f 0%, #0d2a22 55%, #030f0b 100%); }
+
+  /* ===================== LOKASI / PETA ===================== */
+  .section-lokasi{ background:var(--white); padding:84px 0 92px; }
+
+  .map-wrap{ position:relative; max-width:1100px; margin:0 auto; }
+  .map-frame{
+    border-radius:var(--radius-lg); overflow:hidden;
+    box-shadow:var(--shadow-soft); border:1px solid var(--border-soft);
+    aspect-ratio:16/9;
+  }
+  .map-frame iframe{ width:100%; height:100%; border:0; display:block; }
+
+  .map-info-card{
+    position:absolute; top:22px; left:22px; z-index:5;
+    background:var(--white); border-radius:var(--radius-md);
+    box-shadow:0 20px 42px rgba(0,0,0,.24);
+    border-left:4px solid var(--green-800);
+    padding:22px 24px; max-width:300px;
+  }
+  .map-info-card .map-eyebrow{
+    display:block; font-family:var(--font-display); font-weight:700; font-size:.66rem;
+    letter-spacing:1.4px; text-transform:uppercase; color:var(--gold-deep); margin-bottom:8px;
+  }
+  .map-info-card h3{
+    font-family:var(--font-display); font-weight:700; font-size:1.05rem; color:var(--ink);
+    line-height:1.3;
+  }
+  .map-info-card .map-address{
+    font-size:.82rem; color:var(--ink-soft); line-height:1.65; margin-top:9px;
+  }
+  .map-contact-list{
+    display:flex; flex-direction:column; gap:6px; margin-top:13px;
+  }
+  .map-contact-list li{
+    display:flex; align-items:center; gap:8px; font-size:.8rem; color:var(--ink-soft);
+  }
+  .map-contact-list svg{ width:13px; height:13px; flex-shrink:0; color:var(--green-800); }
+  .map-contact-list a{ color:var(--ink); font-weight:600; transition:.2s; }
+  .map-contact-list a:hover{ color:var(--green-800); }
+  .map-info-card .btn-maps{
+    display:inline-flex; align-items:center; gap:8px; margin-top:15px;
+    background:var(--green-800); color:#fff; font-family:var(--font-display);
+    font-weight:600; font-size:.82rem; padding:10px 18px; border-radius:8px; transition:.2s ease;
+  }
+  .map-info-card .btn-maps:hover{ background:var(--green-900); }
+  .map-info-card .btn-maps svg{ width:14px; height:14px; }
+  .map-hint{
+    display:flex; align-items:flex-start; gap:7px; margin-top:15px; padding-top:13px;
+    border-top:1px dashed var(--border-soft); font-size:.72rem; font-style:italic; color:var(--ink-soft);
+  }
+  .map-hint svg{ width:14px; height:14px; flex-shrink:0; margin-top:1px; color:var(--gold-deep); }
+
+  /* ===================== FEED INSTAGRAM ===================== */
+  .section-instagram{ background:var(--white); padding:84px 0 92px; }
+
+  .ig-header{
+    display:flex; align-items:center; gap:30px; flex-wrap:wrap;
+    max-width:900px; margin:0 auto 46px; padding-bottom:36px;
+    border-bottom:1px solid var(--border-soft);
+  }
+  .ig-avatar{
+    width:100px; height:100px; border-radius:50%; flex-shrink:0; padding:3.5px;
+    background:linear-gradient(135deg,#f9ce34,#ee2a7b 55%,#6228d7);
+  }
+  .ig-avatar-inner{
+    width:100%; height:100%; border-radius:50%; background:var(--white);
+    display:flex; align-items:center; justify-content:center; overflow:hidden; padding:5px;
+  }
+  .ig-avatar-inner .brand-mark{ width:100%; height:100%; }
+  .ig-avatar-inner .brand-mark span{ font-size:1.4rem; }
+
+  .ig-info{ flex:1; min-width:230px; }
+  .ig-name{ font-family:var(--font-display); font-weight:700; font-size:1.18rem; color:var(--ink); }
+  .ig-username{ font-size:.9rem; color:var(--ink-soft); margin-top:2px; }
+  .ig-stats{ display:flex; gap:32px; margin-top:16px; flex-wrap:wrap; }
+  .ig-stat strong{ display:block; font-family:var(--font-display); font-weight:700; font-size:1.08rem; color:var(--green-800); }
+  .ig-stat span{ font-size:.74rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.5px; }
+
+  .ig-follow-btn{
+    flex-shrink:0; background:var(--insta-blue); color:#fff;
+    font-family:var(--font-display); font-weight:600; font-size:.9rem;
+    padding:11px 30px; border-radius:8px; transition:.2s ease;
+  }
+  .ig-follow-btn:hover{ background:#1877c9; }
+
+  .ig-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; max-width:1000px; margin:0 auto;
+  }
+  .ig-post{
+    position:relative; aspect-ratio:1/1; overflow:hidden; border-radius:8px; cursor:pointer;
+  }
+  .ig-post-bg{ position:absolute; inset:0; }
+  .ig-post-icon{
+    position:absolute; top:10px; right:10px; z-index:3;
+    filter:drop-shadow(0 2px 4px rgba(0,0,0,.5));
+  }
+  .ig-post-icon svg{ width:18px; height:18px; }
+  .ig-post-views{
+    position:absolute; left:10px; bottom:10px; z-index:3;
+    display:flex; align-items:center; gap:5px;
+    color:#fff; font-size:.72rem; font-weight:600; text-shadow:0 1px 3px rgba(0,0,0,.6);
+  }
+  .ig-post-views svg{ width:12px; height:12px; }
+  .ig-post-overlay{
+    position:absolute; inset:0; z-index:2; padding:16px;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    background:rgba(0,20,17,.6); opacity:0; transition:opacity .25s ease;
+  }
+  .ig-post:hover .ig-post-overlay{ opacity:1; }
+  .ig-post-caption{ color:#fff; font-family:var(--font-display); font-weight:600; font-size:.86rem; line-height:1.4; }
+
+  .ig-post-1 .ig-post-bg{ background:linear-gradient(150deg, var(--green-700), var(--green-900)); }
+  .ig-post-2 .ig-post-bg{ background:linear-gradient(150deg, #caa500, var(--green-900)); }
+  .ig-post-3 .ig-post-bg{ background:linear-gradient(150deg, var(--red-bright), #7a1810); }
+  .ig-post-4 .ig-post-bg{ background:linear-gradient(150deg, #0e6f5c, #023931); }
+  .ig-post-5 .ig-post-bg{ background:linear-gradient(150deg, #12796a, #003a30); }
+  .ig-post-6 .ig-post-bg{ background:linear-gradient(150deg, #b8860b, #3d2c00); }
+  .ig-post-7 .ig-post-bg{ background:linear-gradient(150deg, var(--green-800), #061f19); }
+  .ig-post-8 .ig-post-bg{ background:linear-gradient(150deg, #a83232, var(--green-900)); }
+
+  /* ===================== BROSUR ===================== */
+  .section-brosur{
+    background:
+      repeating-linear-gradient(45deg, rgba(255,215,0,.045) 0 1.5px, transparent 1.5px 42px),
+      repeating-linear-gradient(-45deg, rgba(255,215,0,.045) 0 1.5px, transparent 1.5px 42px),
+      linear-gradient(160deg, var(--green-800) 0%, var(--green-900) 100%);
+    padding:84px 0 92px;
+  }
+  .section-brosur .section-head .section-eyebrow{ color:rgba(255,255,255,.72); }
+  .section-brosur .section-head h2{ color:var(--white); }
+  .section-brosur .section-head .underline{ background:var(--gold); }
+  .brosur-badge-wrap{ text-align:center; margin-top:18px; }
+
+  .brosur-grid{
+    display:grid; grid-template-columns:1.5fr 1fr; gap:50px; align-items:start;
+    max-width:1150px; margin:46px auto 0;
+  }
+
+  .req-item{ display:flex; gap:16px; margin-bottom:24px; }
+  .req-item:last-child{ margin-bottom:0; }
+  .req-number{
+    flex-shrink:0; width:36px; height:36px; border-radius:50%;
+    background:var(--gold); color:var(--green-900);
+    font-family:var(--font-display); font-weight:800; font-size:1rem;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 14px rgba(0,0,0,.25);
+  }
+  .req-text{ font-size:.92rem; line-height:1.7; color:rgba(255,255,255,.92); padding-top:5px; }
+  .req-sublist{ margin-top:10px; display:flex; flex-direction:column; gap:7px; }
+  .req-sublist li{ font-size:.85rem; color:rgba(255,255,255,.78); padding-left:18px; position:relative; }
+  .req-sublist li::before{ content:'—'; position:absolute; left:0; color:var(--gold); }
+
+  .brosur-sidebar{
+    background:var(--white); border-radius:var(--radius-lg);
+    padding:30px 26px; box-shadow:0 26px 52px rgba(0,0,0,.3);
+  }
+  .brosur-sidebar h3{
+    font-family:var(--font-display); font-weight:700; font-size:1rem; color:var(--green-800);
+    margin-bottom:14px; display:flex; align-items:center; gap:8px;
+  }
+  .brosur-sidebar h3 svg{ width:17px; height:17px; flex-shrink:0; }
+  .brosur-info-item{ font-size:.85rem; color:var(--ink-soft); line-height:1.7; margin-bottom:14px; }
+  .brosur-info-item:last-child{ margin-bottom:0; }
+  .brosur-info-item strong{ color:var(--ink); display:block; margin-bottom:2px; }
+  .brosur-info-item a{ color:var(--green-800); font-weight:600; text-decoration:underline; text-underline-offset:2px; word-break:break-word; }
+
+  .brosur-divider{ height:1px; background:var(--border-soft); margin:22px 0; }
+
+  .brosur-downloads{ display:flex; flex-direction:column; gap:10px; }
+  .btn-download{
+    display:flex; align-items:center; gap:11px; padding:13px 16px; border-radius:10px;
+    background:var(--green-800); color:#fff; transition:.2s ease;
+  }
+  .btn-download:hover{ background:var(--green-900); }
+  .btn-download.secondary{ background:var(--cream); color:var(--green-800); border:1.5px solid var(--green-800); }
+  .btn-download.secondary:hover{ background:#f3efe0; }
+  .btn-download svg{ width:18px; height:18px; flex-shrink:0; }
+  .btn-download .dl-copy{ flex:1; display:flex; flex-direction:column; }
+  .btn-download .dl-label{ font-family:var(--font-display); font-weight:600; font-size:.85rem; }
+  .btn-download .dl-hint{ font-size:.68rem; opacity:.75; margin-top:1px; }
+
+  .brosur-subsection{ margin-top:64px; }
+  .sub-head{ text-align:center; margin-bottom:34px; }
+  .sub-head .sub-eyebrow{
+    display:block; font-family:var(--font-display); font-weight:700; font-size:.68rem;
+    text-transform:uppercase; letter-spacing:1.4px; color:rgba(255,255,255,.62); margin-bottom:8px;
+  }
+  .sub-head h3{ font-family:var(--font-display); font-weight:800; font-size:1.35rem; color:var(--white); }
+  .sub-head .sub-underline{ width:46px; height:2.5px; background:var(--gold); margin:13px auto 0; border-radius:2px; }
+
+  /* Gelombang & Promo */
+  .promo-grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:24px; }
+  .promo-card{
+    flex:1 1 260px; max-width:300px; text-align:center;
+    background:var(--white); border-radius:var(--radius-md);
+    padding:26px 22px; box-shadow:var(--shadow-soft);
+    position:relative; overflow:hidden;
+  }
+  .promo-card::before{ content:''; position:absolute; top:0; left:0; right:0; height:5px; background:var(--gold); }
+  .promo-icon{
+    width:52px; height:52px; border-radius:50%; margin:0 auto 14px;
+    background:rgba(0,77,64,.08); display:flex; align-items:center; justify-content:center;
+  }
+  .promo-icon svg{ width:24px; height:24px; color:var(--green-800); }
+  .promo-label{
+    font-family:var(--font-display); font-weight:700; font-size:.68rem;
+    text-transform:uppercase; letter-spacing:1.1px; color:var(--ink-soft);
+  }
+  .promo-date{ font-family:var(--font-display); font-weight:600; font-size:.86rem; color:var(--ink); margin-top:6px; }
+  .promo-reward{ font-family:var(--font-display); font-weight:800; font-size:1.05rem; color:var(--green-800); margin-top:12px; }
+
+  .promo-card.bonus{ background:linear-gradient(155deg,#ffe680,var(--gold)); }
+  .promo-card.bonus::before{ background:var(--green-800); }
+  .promo-card.bonus .promo-icon{ background:rgba(0,51,43,.14); }
+  .promo-card.bonus .promo-icon svg{ color:var(--green-900); }
+  .promo-card.bonus .promo-label{ color:rgba(4,38,30,.7); }
+  .promo-card.bonus .promo-reward{ color:var(--green-900); font-size:1.12rem; letter-spacing:.2px; }
+
+  /* Rincian Biaya */
+  .cost-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; align-items:start; }
+  .cost-card{ background:var(--white); border-radius:var(--radius-md); padding:26px 24px; box-shadow:var(--shadow-soft); }
+  .cost-card h4{
+    font-family:var(--font-display); font-weight:700; font-size:.92rem; color:var(--green-800);
+    margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--border-soft);
+  }
+  .cost-row{ display:flex; justify-content:space-between; gap:12px; font-size:.83rem; color:var(--ink-soft); padding:7px 0; }
+  .cost-row span:last-child{ color:var(--ink); font-weight:600; white-space:nowrap; text-align:right; }
+  .cost-total{
+    display:flex; justify-content:space-between; gap:12px; margin-top:12px;
+    padding:11px 12px; border-radius:8px; background:rgba(0,77,64,.07);
+    font-family:var(--font-display); font-weight:700; font-size:.86rem; color:var(--green-800);
+  }
+  .cost-note{ font-size:.74rem; font-style:italic; color:var(--ink-soft); margin-top:10px; }
+
+  .cost-subtable{ width:100%; border-collapse:collapse; font-size:.78rem; margin-top:2px; }
+  .cost-subtable th{
+    font-family:var(--font-display); font-weight:700; color:var(--green-800); text-align:right;
+    padding:6px 4px; font-size:.68rem; text-transform:uppercase; letter-spacing:.3px;
+  }
+  .cost-subtable th:first-child{ text-align:left; }
+  .cost-subtable td{ padding:8px 4px; color:var(--ink-soft); text-align:right; border-top:1px solid var(--border-soft); }
+  .cost-subtable td:first-child{ text-align:left; color:var(--ink); font-weight:500; }
+  .cost-subtable tr.total td{
+    font-weight:700; color:var(--green-800); border-top:1.5px dashed var(--border-soft);
+  }
+  .cost-subtable .muted{ color:var(--ink-soft); font-weight:400; }
+
+  /* ===================== FAQ ===================== */
+  .section-faq{ background:var(--white); padding:84px 0 92px; }
+  .faq-lead{
+    text-align:center; max-width:560px; margin:16px auto 0;
+    font-size:.9rem; color:var(--ink-soft); line-height:1.65;
+  }
+  .faq-list{
+    max-width:820px; margin:44px auto 0; display:flex; flex-direction:column; gap:14px;
+  }
+  .faq-item{
+    border:1px solid var(--border-soft); border-radius:var(--radius-md);
+    overflow:hidden; background:var(--white); transition:.2s ease;
+  }
+  .faq-item.active{ box-shadow:var(--shadow-soft); border-color:rgba(0,77,64,.25); }
+  .faq-summary{
+    width:100%; text-align:left; cursor:pointer; display:flex; align-items:center; gap:16px;
+    padding:18px 20px; font-family:var(--font-display); font-weight:600; font-size:.95rem; color:var(--ink);
+    background:none; border:none;
+  }
+  .faq-num{
+    flex-shrink:0; width:34px; height:34px; border-radius:50%;
+    background:var(--green-800); color:var(--gold);
+    font-family:var(--font-display); font-weight:800; font-size:.85rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .faq-q-text{ flex:1; line-height:1.45; }
+  .faq-chevron{ flex-shrink:0; width:20px; height:20px; color:var(--ink-soft); transition:transform .25s ease; }
+  .faq-item.active .faq-chevron{ transform:rotate(180deg); color:var(--green-800); }
+
+  .faq-answer{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
+  .faq-answer-inner{ padding:0 20px 22px 70px; font-size:.87rem; color:var(--ink-soft); line-height:1.75; }
+  .faq-answer-inner p{ margin-bottom:8px; }
+  .faq-answer-inner p:last-child{ margin-bottom:0; }
+  .faq-answer-inner ul{ display:flex; flex-direction:column; gap:7px; margin:8px 0; }
+  .faq-answer-inner li{ padding-left:16px; position:relative; }
+  .faq-answer-inner li::before{ content:'•'; position:absolute; left:0; color:var(--green-800); font-weight:700; }
+  .faq-answer-inner strong{ color:var(--ink); }
+  .faq-answer-inner a{ color:var(--green-800); font-weight:600; text-decoration:underline; text-underline-offset:2px; }
+
+  /* ===================== FORM DAFTAR ===================== */
+  .section-daftar{ background:var(--cream); padding:84px 0 92px; }
+  .daftar-card{
+    max-width:880px; margin:44px auto 0; background:var(--white);
+    border:1px solid var(--border-soft); border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-soft); padding:40px 36px 44px;
+  }
+  .form-section-title{
+    display:flex; align-items:center; gap:10px; margin:0 0 22px;
+    font-family:var(--font-display); font-weight:700; font-size:.9rem; color:var(--green-800);
+    text-transform:uppercase; letter-spacing:.6px; padding-bottom:12px; border-bottom:2px solid var(--border-soft);
+  }
+  .form-section-title.spaced{ margin-top:40px; }
+  .form-section-title svg{ width:18px; height:18px; flex-shrink:0; }
+
+  .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px 24px; }
+  .form-group{ display:flex; flex-direction:column; gap:6px; }
+  .form-group.full{ grid-column:1 / -1; }
+  .form-group label{ font-family:var(--font-display); font-weight:600; font-size:.82rem; color:var(--ink); }
+  .form-group label .req{ color:var(--red-bright); margin-left:2px; }
+  .form-group .hint{ font-size:.72rem; color:var(--ink-soft); margin-top:-2px; }
+
+  .form-control{
+    width:100%; border:1.5px solid var(--border-soft); border-radius:8px;
+    padding:10px 12px; font-family:var(--font-body); font-size:.86rem; color:var(--ink);
+    background:var(--white); transition:.2s ease;
+  }
+  .form-control:focus{ outline:none; border-color:var(--green-800); box-shadow:0 0 0 3px rgba(0,77,64,.12); }
+  .form-control:disabled{ background:var(--cream); color:var(--ink-soft); cursor:not-allowed; }
+  textarea.form-control{ resize:vertical; min-height:84px; font-family:var(--font-body); }
+  select.form-control{
+    cursor:pointer; appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a5f5a' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:right 12px center; background-size:16px; padding-right:34px;
+  }
+
+  .radio-chip-group{ display:flex; flex-wrap:wrap; gap:10px; }
+  .radio-chip{ position:relative; }
+  .radio-chip input{ position:absolute; inset:0; opacity:0; cursor:pointer; margin:0; }
+  .radio-chip span{
+    display:inline-flex; align-items:center; padding:9px 20px; border-radius:24px;
+    border:1.5px solid var(--border-soft); font-family:var(--font-display); font-weight:600;
+    font-size:.83rem; color:var(--ink-soft); transition:.2s ease;
+  }
+  .radio-chip input:checked + span{ background:var(--green-800); border-color:var(--green-800); color:var(--gold); }
+  .radio-chip input:focus-visible + span{ outline:2px solid var(--green-800); outline-offset:2px; }
+
+  .date-select-row{ display:grid; grid-template-columns:1fr 1.3fr 1fr; gap:10px; }
+  .school-origin-row{ display:grid; grid-template-columns:1.5fr 1fr; gap:10px; }
+
+  .file-upload{
+    display:flex; align-items:center; gap:12px; border:1.5px dashed var(--border-soft);
+    border-radius:8px; padding:13px 16px; cursor:pointer; transition:.2s ease;
+  }
+  .file-upload:hover{ border-color:var(--green-800); background:rgba(0,77,64,.03); }
+  .file-upload input{ position:absolute; width:1px; height:1px; opacity:0; overflow:hidden; }
+  .file-upload svg{ width:20px; height:20px; color:var(--green-800); flex-shrink:0; }
+  .file-upload .fu-text{ font-size:.82rem; color:var(--ink-soft); }
+  .file-upload .fu-text strong{ color:var(--green-800); }
+
+  .captcha-box{
+    margin-top:36px; padding:22px 20px; border-radius:var(--radius-md);
+    background:rgba(0,77,64,.04); border:1px dashed var(--border-soft);
+  }
+  .captcha-box > label{
+    display:block; font-family:var(--font-display); font-weight:700; font-size:.82rem;
+    color:var(--ink); margin-bottom:12px;
+  }
+  .captcha-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; }
+  #captchaCanvas{ border-radius:8px; border:1px solid var(--border-soft); background:#eef1ee; }
+  .captcha-refresh{
+    width:42px; height:42px; border-radius:8px; border:1.5px solid var(--border-soft); flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; color:var(--green-800); transition:.2s ease;
+  }
+  .captcha-refresh:hover{ background:var(--green-800); color:#fff; border-color:var(--green-800); }
+  .captcha-refresh svg{ width:18px; height:18px; }
+
+  .form-actions{ display:flex; gap:14px; margin-top:32px; flex-wrap:wrap; }
+  .btn-submit, .btn-reset{
+    flex:1; min-width:180px; font-family:var(--font-display); font-weight:700;
+    font-size:.92rem; padding:14px 0; border-radius:10px; transition:.2s ease; text-align:center; color:#fff;
+  }
+  .btn-submit{ background:var(--check-green); }
+  .btn-submit:hover{ filter:brightness(.93); }
+  .btn-reset{ background:var(--red-bright); }
+  .btn-reset:hover{ filter:brightness(.92); }
+
+  .form-status{ display:none; margin-top:18px; padding:14px 16px; border-radius:8px; font-size:.85rem; }
+  .form-status.success{ display:block; background:rgba(47,191,113,.12); color:#1f7a4d; border:1px solid rgba(47,191,113,.35); }
+  .form-status.error{ display:block; background:rgba(232,54,43,.1); color:var(--red-bright); border:1px solid rgba(232,54,43,.3); }
+
+  /* ===================== DAFTAR (FORM REGISTRASI) ===================== */
+  .section-daftar{
+    background:
+      repeating-linear-gradient(45deg, rgba(255,215,0,.045) 0 1.5px, transparent 1.5px 42px),
+      repeating-linear-gradient(-45deg, rgba(255,215,0,.045) 0 1.5px, transparent 1.5px 42px),
+      linear-gradient(160deg, var(--green-800) 0%, var(--green-900) 100%);
+    padding:84px 0 96px;
+  }
+  .section-daftar .section-head .section-eyebrow{ color:rgba(255,255,255,.72); }
+  .section-daftar .section-head h2{ color:var(--white); }
+  .section-daftar .section-head .underline{ background:var(--gold); }
+
+  .form-shell{ max-width:820px; margin:44px auto 0; }
+  .form-card{
+    background:var(--white); border-radius:var(--radius-lg);
+    padding:34px 32px; box-shadow:0 26px 55px rgba(0,0,0,.28); margin-bottom:28px;
+  }
+  .form-card-title{
+    display:flex; align-items:center; gap:10px;
+    font-family:var(--font-display); font-weight:700; font-size:1.02rem; color:var(--green-800);
+    margin-bottom:26px; padding-bottom:15px; border-bottom:2px solid var(--border-soft);
+  }
+  .form-card-title svg{ width:19px; height:19px; flex-shrink:0; }
+
+  .form-group{ margin-bottom:20px; }
+  .form-group:last-child{ margin-bottom:0; }
+  .form-label{ display:block; font-family:var(--font-display); font-weight:600; font-size:.85rem; color:var(--ink); margin-bottom:7px; }
+  .form-label .req{ color:var(--red-bright); margin-left:2px; }
+  .form-hint{ font-size:.73rem; color:var(--ink-soft); margin-top:5px; line-height:1.5; }
+
+  .form-input, .form-select, .form-textarea{
+    width:100%; padding:11px 14px; border:1.5px solid var(--border-soft); border-radius:8px;
+    font-family:var(--font-body); font-size:.87rem; color:var(--ink); background:var(--white); transition:.2s ease;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus{
+    outline:none; border-color:var(--green-800); box-shadow:0 0 0 3px rgba(0,77,64,.12);
+  }
+  .form-textarea{ resize:vertical; min-height:88px; font-family:inherit; }
+  .form-select{
+    cursor:pointer; appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a5f5a' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:right 12px center; background-size:15px; padding-right:36px;
+  }
+
+  .form-row{ display:flex; gap:12px; flex-wrap:wrap; }
+  .form-row .form-group{ flex:1; min-width:130px; margin-bottom:0; }
+  .form-sub-label{ font-size:.72rem; font-weight:600; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px; }
+
+  .chip-group{ display:flex; flex-wrap:wrap; gap:10px; }
+  .chip-option{ position:relative; }
+  .chip-option input{ position:absolute; inset:0; opacity:0; margin:0; cursor:pointer; }
+  .chip-option .chip-label{
+    display:inline-flex; align-items:center; gap:7px; padding:10px 18px;
+    border:1.5px solid var(--border-soft); border-radius:24px;
+    font-family:var(--font-display); font-weight:600; font-size:.82rem; color:var(--ink-soft);
+    transition:.2s ease; cursor:pointer; user-select:none;
+  }
+  .chip-option input:checked + .chip-label{ background:var(--green-800); border-color:var(--green-800); color:var(--gold); }
+  .chip-option input:focus-visible + .chip-label{ outline:2px solid var(--green-800); outline-offset:2px; }
+
+  .file-upload{
+    position:relative; border:1.5px dashed var(--border-soft); border-radius:10px;
+    padding:20px; text-align:center; cursor:pointer; transition:.2s ease;
+  }
+  .file-upload:hover{ border-color:var(--green-800); background:rgba(0,77,64,.03); }
+  .file-upload input[type="file"]{ position:absolute; inset:0; opacity:0; cursor:pointer; }
+  .file-upload svg{ width:24px; height:24px; color:var(--green-800); margin-bottom:8px; }
+  .file-upload .file-upload-text{ font-family:var(--font-display); font-size:.84rem; font-weight:600; color:var(--ink); }
+  .file-upload .file-upload-hint{ font-size:.72rem; color:var(--ink-soft); margin-top:3px; }
+  .file-upload .file-upload-filename{ display:none; font-size:.78rem; color:var(--green-800); font-weight:600; margin-top:8px; }
+  .file-upload.has-file{ border-style:solid; border-color:var(--check-green); background:rgba(47,191,113,.05); }
+  .file-upload.has-file .file-upload-filename{ display:block; }
+
+  .captcha-row{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .captcha-row canvas{ border-radius:8px; border:1.5px solid var(--border-soft); display:block; }
+  .captcha-refresh{
+    width:42px; height:42px; border-radius:8px; border:1.5px solid var(--border-soft);
+    display:flex; align-items:center; justify-content:center; color:var(--green-800);
+    transition:.25s ease; flex-shrink:0;
+  }
+  .captcha-refresh:hover{ background:rgba(0,77,64,.06); border-color:var(--green-800); transform:rotate(75deg); }
+  .captcha-refresh svg{ width:18px; height:18px; }
+  .captcha-error{ display:none; font-size:.78rem; color:var(--red-bright); font-weight:600; margin-top:8px; }
+  .captcha-error.show{ display:block; }
+
+  .form-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top:6px; }
+  .btn-submit, .btn-reset{
+    flex:1; min-width:160px; font-family:var(--font-display); font-weight:700; font-size:.92rem;
+    padding:15px 20px; border-radius:10px; transition:.2s ease; color:#fff;
+  }
+  .btn-submit{ background:var(--green-800); box-shadow:0 10px 24px rgba(0,77,64,.3); }
+  .btn-submit:hover{ background:var(--green-900); }
+  .btn-reset{ background:var(--red-bright); box-shadow:0 10px 24px rgba(232,54,43,.28); }
+  .btn-reset:hover{ background:#c9291f; }
+
+  .form-success{
+    display:none; align-items:center; gap:10px; margin-top:18px; padding:14px 16px;
+    border-radius:10px; background:rgba(47,191,113,.12); border:1.5px solid var(--check-green);
+    color:#1b7a45; font-size:.85rem; font-weight:600;
+  }
+  .form-success.show{ display:flex; }
+  .form-success svg{ width:19px; height:19px; flex-shrink:0; }
+
+  .daftar-toggle{ display:flex; justify-content:center; gap:10px; margin-top:22px; flex-wrap:wrap; }
+  .toggle-btn{
+    padding:11px 22px; border-radius:24px; border:1.5px solid rgba(255,255,255,.35);
+    background:rgba(255,255,255,.08); color:rgba(255,255,255,.85);
+    font-family:var(--font-display); font-weight:600; font-size:.84rem; transition:.2s ease; cursor:pointer;
+  }
+  .toggle-btn:hover{ background:rgba(255,255,255,.16); }
+  .toggle-btn.active{ background:var(--gold); border-color:var(--gold); color:var(--green-900); }
+
+  .daftar-panel{ display:none; }
+  .daftar-panel.active{ display:block; }
+
+  .status-hint{ font-size:.76rem; color:var(--ink-soft); margin-top:10px; font-style:italic; line-height:1.6; }
+  .status-hint strong{ font-style:normal; color:var(--ink); }
+
+  .status-error{
+    display:none; margin-top:16px; padding:12px 14px; border-radius:8px;
+    background:rgba(232,54,43,.08); border:1.5px solid var(--red-bright);
+    color:var(--red-bright); font-size:.82rem; font-weight:600;
+  }
+  .status-error.show{ display:block; }
+
+  .status-result{ display:none; margin-top:28px; padding-top:26px; border-top:1.5px dashed var(--border-soft); }
+  .status-result.show{ display:block; }
+  .status-result-header{ display:flex; align-items:center; gap:13px; margin-bottom:22px; }
+  .status-result-icon{
+    width:44px; height:44px; border-radius:50%; flex-shrink:0;
+    background:rgba(47,191,113,.14); display:flex; align-items:center; justify-content:center;
+  }
+  .status-result-icon svg{ width:22px; height:22px; color:var(--check-green); }
+  .status-result-title{ font-family:var(--font-display); font-weight:700; font-size:1rem; color:var(--ink); }
+  .status-result-sub{ font-size:.8rem; color:var(--ink-soft); margin-top:2px; }
+
+  .status-info-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; margin-bottom:28px; }
+  .status-info-item{ background:var(--cream); border-radius:8px; padding:13px 15px; }
+  .status-info-item .label{ font-size:.66rem; text-transform:uppercase; letter-spacing:.5px; color:var(--ink-soft); font-weight:700; }
+  .status-info-item .value{ font-family:var(--font-display); font-weight:700; font-size:.9rem; color:var(--ink); margin-top:4px; }
+  .status-badge{ display:inline-block; padding:4px 13px; border-radius:16px; font-size:.75rem; font-weight:700; }
+  .status-badge.success{ background:rgba(47,191,113,.16); color:#1b7a45; }
+
+  .status-timeline{ display:flex; justify-content:space-between; position:relative; }
+  .status-timeline::before{
+    content:''; position:absolute; top:16px; left:6%; right:6%; height:2px; background:var(--border-soft); z-index:0;
+  }
+  .status-step{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; flex:1; text-align:center; padding:0 2px; }
+  .status-step .dot{
+    width:32px; height:32px; border-radius:50%; background:var(--white); border:2px solid var(--border-soft);
+    display:flex; align-items:center; justify-content:center; margin-bottom:9px;
+    font-family:var(--font-display); font-weight:800; font-size:.78rem; color:var(--ink-soft);
+  }
+  .status-step .dot svg{ width:14px; height:14px; }
+  .status-step.done .dot{ background:var(--green-800); border-color:var(--green-800); color:#fff; }
+  .status-step.current .dot{ border-color:var(--gold-deep); background:var(--gold); color:var(--green-900); }
+  .status-step .step-label{ font-size:.66rem; font-weight:600; color:var(--ink-soft); max-width:76px; line-height:1.3; }
+  .status-step.done .step-label, .status-step.current .step-label{ color:var(--ink); }
+
+  .status-detail{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:30px; }
+  .status-detail-card{ background:var(--cream); border-radius:var(--radius-md); padding:22px 22px 8px; border:1px solid var(--border-soft); }
+  .status-detail-card .form-card-title{ border-bottom-color:rgba(0,77,64,.15); margin-bottom:4px; }
+  .detail-rows{ display:flex; flex-direction:column; }
+  .detail-row{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px;
+    padding:12px 0; border-bottom:1px solid var(--border-soft); font-size:.83rem;
+  }
+  .detail-row:last-child{ border-bottom:none; }
+  .detail-row .detail-label{ color:var(--ink-soft); font-weight:500; flex-shrink:0; max-width:44%; }
+  .detail-row .detail-value{ color:var(--ink); font-weight:600; text-align:right; }
+  .detail-row .detail-value.empty{ color:var(--ink-soft); font-weight:400; font-style:italic; }
+  .detail-row .detail-value a{ color:var(--green-800); font-weight:600; text-decoration:underline; text-underline-offset:2px; }
+
+  .link-forgot{
+    display:inline-block; margin-top:10px; background:none; border:none; padding:0;
+    font-family:var(--font-display); font-weight:600; font-size:.8rem; color:var(--green-800);
+    text-decoration:underline; text-underline-offset:2px; cursor:pointer;
+  }
+  .link-forgot:hover{ color:var(--green-900); }
+
+  .forgot-panel{ margin-top:16px; padding-top:16px; border-top:1px dashed var(--border-soft); }
+  .forgot-panel[hidden]{ display:none; }
+  .forgot-result:empty{ display:none; }
+  .forgot-found{
+    margin-top:14px; padding:14px 16px; border-radius:8px;
+    background:rgba(47,191,113,.1); border:1.5px solid var(--check-green);
+    font-size:.85rem; color:#1b7a45; line-height:1.6;
+  }
+  .forgot-found strong{ display:block; font-family:var(--font-display); font-size:.95rem; margin-top:3px; }
+
+  /* ===================== FOOTER ===================== */
+  .site-footer{ background:var(--green-900); color:rgba(255,255,255,.7); padding:70px 0 34px; }
+
+  .footer-main{
+    display:grid; grid-template-columns:1.3fr .9fr; gap:56px; align-items:start;
+  }
+
+  .footer-org-name{
+    font-family:var(--font-display); font-weight:800; font-size:1.05rem;
+    color:var(--white); letter-spacing:.3px; line-height:1.4;
+  }
+  .footer-pesantren-name{
+    font-family:var(--font-display); font-weight:700; font-size:.98rem;
+    color:var(--gold); margin-top:8px; letter-spacing:.2px;
+  }
+  .footer-region{ font-size:.82rem; color:rgba(255,255,255,.6); margin-top:3px; }
+
+  .footer-block{ margin-top:26px; }
+  .footer-block-label{
+    font-family:var(--font-display); font-weight:700; font-size:.7rem;
+    text-transform:uppercase; letter-spacing:1.3px; color:var(--gold); margin-bottom:10px;
+  }
+  .footer-block p{ font-size:.85rem; color:rgba(255,255,255,.78); line-height:1.7; max-width:360px; }
+
+  .footer-contact-list{ display:flex; flex-direction:column; gap:10px; }
+  .footer-contact-list li{
+    display:flex; align-items:center; gap:10px; font-size:.85rem; color:rgba(255,255,255,.85);
+  }
+  .footer-contact-list svg{ width:15px; height:15px; flex-shrink:0; color:var(--gold); }
+  .footer-contact-list a{ color:inherit; transition:.2s ease; }
+  .footer-contact-list a:hover{ color:var(--gold); }
+
+  .footer-social{ display:flex; flex-direction:column; align-items:flex-end; }
+  .footer-social-label{
+    font-family:var(--font-display); font-weight:700; font-size:.7rem;
+    text-transform:uppercase; letter-spacing:1.3px; color:var(--gold); margin-bottom:12px;
+  }
+
+  .fb-widget{
+    background:var(--white); border-radius:var(--radius-md); overflow:hidden;
+    box-shadow:0 22px 46px rgba(0,0,0,.32); width:100%; max-width:320px;
+  }
+  .fb-cover{ height:74px; background:linear-gradient(120deg, var(--green-700), var(--green-900)); position:relative; }
+  .fb-avatar{
+    width:60px; height:60px; border-radius:50%; background:var(--white);
+    border:3px solid var(--white); position:absolute; left:16px; bottom:-26px;
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+    box-shadow:0 4px 10px rgba(0,0,0,.25);
+  }
+  .fb-avatar .brand-mark{ width:100%; height:100%; }
+  .fb-avatar .brand-mark span{ font-size:1.1rem; }
+  .fb-body{ padding:36px 18px 20px; }
+  .fb-name{
+    display:flex; align-items:center; gap:6px;
+    font-family:var(--font-display); font-weight:700; font-size:.96rem; color:var(--ink);
+  }
+  .fb-name svg{ width:15px; height:15px; flex-shrink:0; }
+  .fb-meta{ font-size:.76rem; color:var(--ink-soft); margin-top:2px; }
+  .fb-stats{ font-size:.8rem; color:var(--ink-soft); margin-top:11px; }
+  .fb-stats strong{ color:var(--ink); font-weight:700; }
+  .fb-actions{ display:flex; gap:8px; margin-top:16px; }
+  .fb-btn{
+    flex:1; display:flex; align-items:center; justify-content:center; gap:6px;
+    font-family:var(--font-display); font-weight:700; font-size:.82rem;
+    padding:9px 0; border-radius:6px; transition:.2s ease;
+  }
+  .fb-btn svg{ width:13px; height:13px; }
+  .fb-btn-follow{ background:#1877f2; color:#fff; }
+  .fb-btn-follow:hover{ background:#0f5fcc; }
+  .fb-btn-share{ background:#e4e6eb; color:#050505; }
+  .fb-btn-share:hover{ background:#d8dade; }
+
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,.18); margin-top:52px; padding-top:22px; text-align:center;
+  }
+  .footer-bottom .copyright{ font-size:.82rem; color:rgba(255,255,255,.78); }
+  .footer-bottom .dev-credit{ font-size:.76rem; color:rgba(255,255,255,.5); font-style:italic; margin-top:6px; }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width:992px){
+    .hero .container{ grid-template-columns:1fr; gap:40px; }
+    .slider-frame{ max-width:520px; margin:0 auto; }
+    .nav-menu{
+      position:absolute; top:100%; left:0; right:0; background:var(--white);
+      flex-direction:column; align-items:stretch; padding:10px 24px 18px;
+      box-shadow:0 14px 24px rgba(0,0,0,.08);
+      max-height:0; overflow:hidden; opacity:0; visibility:hidden;
+      transition:max-height .3s ease, opacity .25s ease;
+    }
+    .nav-menu.is-open{ max-height:520px; opacity:1; visibility:visible; }
+    .nav-menu li a{ display:block; padding:12px 6px; border-bottom:1px solid var(--border-soft); }
+    .nav-menu li.cta{ margin-top:8px; }
+    .nav-menu li.cta a{ display:inline-block; text-align:center; }
+    .nav-toggle{ display:flex; }
+    .info-grid{ grid-template-columns:repeat(2, 1fr); }
+    .video-grid{ grid-template-columns:repeat(2, 1fr); }
+    .ig-grid{ grid-template-columns:repeat(3, 1fr); }
+    .footer-main{ grid-template-columns:1fr; gap:40px; }
+    .footer-social{ align-items:flex-start; }
+    .brosur-grid{ grid-template-columns:1fr; gap:36px; }
+    .cost-grid{ grid-template-columns:1fr; }
+  }
+
+  @media (max-width:640px){
+    .topbar .container{ justify-content:flex-start; }
+    .brand-text{ display:none; }
+    .hero{ padding:40px 0 48px; }
+    .hero h1{ font-size:1.25rem; }
+    .hero h1 .accent{ font-size:1.55rem; }
+    .hero .subtitle{ letter-spacing:3px; font-size:.92rem; }
+    .fee-box{ flex-direction:row; max-width:100%; }
+    .beasantri-title{ font-size:.95rem; }
+    .site-footer .container{ justify-content:center; text-align:center; }
+
+    .section-alur{ padding:56px 0 64px; }
+    .section-head{ margin-bottom:38px; }
+    .section-head h2{ font-size:1.45rem; }
+    .step-grid{ gap:22px; }
+    .step-card{ padding:26px 20px 24px; flex-basis:100%; max-width:400px; }
+
+    .section-info{ padding:56px 0 60px; }
+    .info-grid{ grid-template-columns:1fr; gap:22px; }
+
+    .section-profile{ padding:56px 0 64px; }
+    .profile-subtitle{ margin:-22px 0 30px; font-size:.92rem; }
+    .video-grid{ grid-template-columns:1fr; gap:20px; max-width:440px; }
+    .vm-content h3{ font-size:1.15rem; }
+    .vm-content h3 small{ font-size:.78rem; letter-spacing:2px; }
+    .vm-play{ width:66px; height:66px; }
+    .vm-play svg{ width:22px; height:22px; }
+
+    .section-instagram{ padding:56px 0 64px; }
+    .ig-header{ flex-direction:column; text-align:center; gap:18px; }
+    .ig-stats{ justify-content:center; }
+    .ig-follow-btn{ width:100%; max-width:260px; }
+    .ig-grid{ grid-template-columns:repeat(2, 1fr); gap:8px; }
+
+    .section-lokasi{ padding:56px 0 64px; }
+    .map-frame{ aspect-ratio:4/3.4; }
+    .map-info-card{
+      position:static; margin-top:16px; max-width:100%; box-shadow:var(--shadow-soft);
+    }
+
+    .site-footer{ padding:52px 0 28px; }
+    .footer-org-name, .footer-pesantren-name, .footer-region{ text-align:center; }
+    .footer-block{ text-align:center; }
+    .footer-block p{ margin-left:auto; margin-right:auto; }
+    .footer-contact-list{ align-items:center; }
+    .footer-contact-list li{ justify-content:center; }
+    .footer-social{ align-items:center; margin-top:8px; }
+    .fb-widget{ max-width:340px; }
+
+    .section-brosur{ padding:56px 0 64px; }
+    .brosur-grid{ margin-top:34px; }
+    .brosur-sidebar{ padding:26px 22px; }
+    .brosur-subsection{ margin-top:44px; }
+    .sub-head h3{ font-size:1.1rem; }
+    .cost-card{ padding:22px 20px; }
+
+    .section-faq{ padding:56px 0 64px; }
+    .faq-list{ margin-top:32px; gap:10px; }
+    .faq-summary{ padding:15px 16px; gap:12px; font-size:.88rem; }
+    .faq-num{ width:28px; height:28px; font-size:.75rem; }
+    .faq-answer-inner{ padding:0 16px 18px 56px; font-size:.83rem; }
+
+    .section-daftar{ padding:56px 0 64px; }
+    .form-shell{ margin-top:32px; }
+    .form-card{ padding:26px 22px; margin-bottom:20px; }
+    .form-actions{ flex-direction:column; }
+    .captcha-row{ gap:10px; }
+
+    .daftar-toggle{ gap:8px; }
+    .toggle-btn{ padding:10px 16px; font-size:.78rem; flex:1; min-width:140px; text-align:center; }
+    .status-info-grid{ grid-template-columns:1fr; }
+    .status-detail{ grid-template-columns:1fr; gap:16px; }
+    .detail-row .detail-label{ max-width:52%; }
+    .status-timeline{ flex-wrap:wrap; row-gap:18px; }
+    .status-timeline::before{ display:none; }
+    .status-step{ flex:1 1 30%; }
+    .status-step .step-label{ max-width:none; }
+  }
+
+  @media (max-width:400px){
+    .topbar-left, .topbar-right{ gap:12px; }
+    .fee-seal{ width:46px; height:46px; font-size:.55rem; }
+    .fee-copy .fee-amount{ font-size:1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===================== TOP BAR ===================== -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <a href="mailto:Amtsilati.pusat@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          Amtsilati.pusat@gmail.com
+        </a>
+      </div>
+      <div class="topbar-right">
+        <a href="tel:+6281392275877">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          Info PSB Putra: 0813-9227-5877
+        </a>
+        <a href="tel:+6282241442801">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          Info PSB Putri: 0822-4144-2801
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar">
+    <div class="container">
+      <a href="#home" class="brand" data-tab="home">
+        <div class="brand-mark"><span>YPI</span></div>
+        <div class="brand-text">
+          Panitia Penerimaan Santri Baru
+          <b>Yayasan Pendidikan Islam Amtsilati</b>
+        </div>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li class="active"><a href="#home" data-tab="home">HOME</a></li>
+        <li><a href="#alur" data-tab="alur">ALUR PENDAFTARAN</a></li>
+        <li><a href="#informasi" data-tab="informasi">INFORMASI</a></li>
+        <li><a href="#lokasi" data-tab="lokasi">LOKASI</a></li>
+        <li><a href="#brosur" data-tab="brosur">BROSUR</a></li>
+        <li><a href="#faq" data-tab="faq">FAQ</a></li>
+        <li><a href="#daftar-mi" data-tab="daftar-mi">DAFTAR MI</a></li>
+        <li class="cta"><a href="#daftar" data-tab="daftar">DAFTAR</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero tab-content active" id="home" data-tab="home">
+    <div class="container">
+
+      <!-- Kolom Kiri: Teks & Informasi -->
+      <div class="hero-copy">
+        <p class="eyebrow-arabic" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+        <span class="eyebrow-tag">Penerimaan Santri Baru</span>
+
+        <h1>
+          YAYASAN PENDIDIKAN ISLAM AMTSILATI PONDOK PESANTREN
+          <span class="accent">DARUL FALAH AMTSILATI</span>
+        </h1>
+        <p class="subtitle">PUTRA&nbsp;–&nbsp;PUTRI</p>
+
+        <h2 class="beasantri-title">Program Beasantri</h2>
+
+        <ul class="req-list">
+          <li>
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Bisa membaca Al-Qur'an, tulisan Arab, latin &amp; sudah mandiri
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Mengisi formulir pendaftaran secara online / offline
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Wajib datang sebelum pendaftaran offline ditutup
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Bagi lulusan cabang wajib membawa sertifikat kelulusan resmi dari Korwil
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Menyelesaikan biaya shodaqoh
+          </li>
+        </ul>
+
+        <div class="fee-box">
+          <div class="fee-seal">RESMI<br>PSB</div>
+          <div class="fee-copy-group">
+            <div class="fee-copy">
+              <div class="fee-label">Biaya Shodaqoh Masuk</div>
+              <div class="fee-amount">Rp. 2.500.000</div>
+            </div>
+            <div class="fee-divider"></div>
+            <div class="fee-copy">
+              <div class="fee-label">Syahriyah / Bulan</div>
+              <div class="fee-amount">Rp. [Isi Nominal]<small>/bulan</small></div>
+            </div>
+          </div>
+        </div>
+
+        <a class="cta-daftar" href="https://psb.amtsilatipusat.com/daftar" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          Daftar Sekarang
+        </a>
+      </div>
+
+      <!-- Kolom Kanan: Slider / Carousel Foto -->
+      <div class="slider-wrap">
+        <div class="slider-frame" id="sliderFrame">
+          <div class="slider-track" id="sliderTrack">
+
+            <div class="slide slide-1">
+              <div class="slide-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="1.3"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </div>
+              <div class="slide-caption"><small>Slide 01</small>Kegiatan Mengaji Al-Qur'an</div>
+            </div>
+
+            <div class="slide slide-2">
+              <div class="slide-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="1.3"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg>
+              </div>
+              <div class="slide-caption"><small>Slide 02</small>Suasana Belajar Santri</div>
+            </div>
+
+            <div class="slide slide-3">
+              <div class="slide-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="1.3"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-8h6v8"/></svg>
+              </div>
+              <div class="slide-caption"><small>Slide 03</small>Kegiatan Asrama Santri</div>
+            </div>
+
+            <div class="slide slide-4">
+              <div class="slide-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="1.3"><circle cx="12" cy="8" r="5"/><path d="M8 13.5 6 22l6-3 6 3-2-8.5"/></svg>
+              </div>
+              <div class="slide-caption"><small>Slide 04</small>Momen Wisuda Santri</div>
+            </div>
+
+            <div class="slide slide-5">
+              <div class="slide-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="1.3"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z"/></svg>
+              </div>
+              <div class="slide-caption"><small>Slide 05</small>Kegiatan Ekstrakurikuler</div>
+            </div>
+
+          </div>
+
+          <div class="slider-dots" id="sliderDots"></div>
+
+          <div class="slider-nav">
+            <button id="prevBtn" aria-label="Foto sebelumnya">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button id="nextBtn" aria-label="Foto berikutnya">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== ALUR PENDAFTARAN ===================== -->
+  <section class="section-alur tab-content" id="alur" data-tab="alur">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Panduan Pendaftaran</span>
+        <h2>ALUR PENDAFTARAN</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="step-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3 class="step-title">Isi Formulir Online</h3>
+          <p class="step-desc">
+            Silahkan Anda kunjungi di link berikut:
+            <a href="https://psb.amtsilatipusat.com/daftar" target="_blank" rel="noopener">psb.amtsilatipusat.com/daftar</a>
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3 class="step-title">Catat No. Pendaftaran &amp; PIN</h3>
+          <p class="step-desc">
+            Setelah Anda menekan tombol simpan data, maka secara otomatis data akan terkirim ke server database kami. Setelah itu akan muncul pop up yang berisi Nomor Pendaftaran beserta PIN. <strong>(Wajib Dicatat)</strong>
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3 class="step-title">Konfirmasi Pendaftaran di Kantor Pendaftaran</h3>
+          <p class="step-desc">
+            Setelah datang ke lokasi pendaftaran, pada bagian Pendaftaran silahkan untuk mengkonfirmasi data terlebih dahulu sebelum dilakukan pembayaran pendaftaran.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3 class="step-title">Pembayaran Administrasi</h3>
+          <p class="step-desc">
+            Setelah data dikonfirmasi, langkah selanjutnya adalah membayar Administrasi pendaftaran di Kantor Yayasan Amtsilati.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">5</div>
+          <h3 class="step-title">Penempatan Kamar Santri</h3>
+          <p class="step-desc">
+            Setelah administrasi telah selesai, maka pendaftar harap mendatangi Kantor Pusat PPPDF untuk pembagian kamar dan pencatatan data kependudukan.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== INFORMASI ===================== -->
+  <section class="section-info tab-content" id="informasi" data-tab="informasi">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Yang Perlu Anda Ketahui</span>
+        <h2>INFORMASI :</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="info-grid">
+
+        <div class="info-card">
+          <div class="info-card-header">⏰ Waktu Pendaftaran :</div>
+          <div class="info-card-body">
+            <ul>
+              <li>01 JANUARI 2026 M – 30 JUNI 2026 M (Online) <br>(12 Rajab 1447 H – 15 Muharram 1448 H)</li>
+              <li>21 MEI 2026 M – 30 JUNI 2026 M (Offline) <br>(04 Dzul Hijjah 1447 H – 15 Muharram 1448 H)</li>
+            </ul>
+            <p class="info-note">NB : Untuk pembayaran langsung di lokasi pendaftaran (datang langsung ke Pesantren).</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-header">⏰ Tempat Pendaftaran</div>
+          <div class="info-card-body">
+            <ul>
+              <li><strong>PP. DARUL FALAH AMTSILATI</strong></li>
+              <li>Jl. Kenanga II RT. 03 RW. 12 Bangsri – Jepara 59453 Jateng</li>
+              <li>Info : 0813-9227-5877 (Putra) | 0822-4144-2801 (Putri)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-header">⏰ Informasi Penting</div>
+          <div class="info-card-body">
+            <ul>
+              <li>Khusus untuk kilatan, pendaftaran dibuka setiap bulan, pada tanggal 01–10.</li>
+              <li>Khusus untuk pendaftaran pondok dengan sekolah, setelah mendaftar secara online, wajib verifikasi dan membayar administrasi sebelum akhir tanggal pendaftaran.</li>
+              <li>Pembayaran biaya pendaftaran dilakukan saat datang ke pondok dengan uang tunai.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TENTANG / PROFIL & VIDEO YOUTUBE ===================== -->
+  <section class="section-profile tab-content active" id="tentang" data-tab="home">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Kenali Kami Lebih Dekat</span>
+        <h2>TENTANG PP. DARUL FALAH AMTSILATI</h2>
+        <div class="underline"></div>
+      </div>
+      <p class="profile-subtitle">Profil PP. Darul Falah Amtsilati 2024 :</p>
+
+      <div class="video-grid">
+
+        <!-- Video 1: Profil Pesantren -->
+        <div class="video-card vc-profil" data-youtube-id="GANTI_ID_VIDEO_PROFIL_PESANTREN" data-video-title="Profil Pondok Darul Falah Amtsilati 2024" role="button" tabindex="0" aria-label="Putar video Profil Pondok Darul Falah Amtsilati">
+          <div class="vm-sky"></div>
+
+          <svg class="vm-scene" viewBox="0 0 900 300" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#0b3a2e">
+              <rect x="46" y="150" width="6" height="70" rx="2"/>
+              <path d="M49 150 C20 140 10 155 4 148 C22 158 40 158 49 150Z"/>
+              <path d="M49 150 C78 138 90 152 96 145 C78 156 60 157 49 150Z"/>
+              <path d="M49 150 C40 122 52 108 47 100 C58 118 58 138 49 150Z"/>
+              <path d="M49 150 C60 124 76 118 78 108 C70 128 58 144 49 150Z"/>
+            </g>
+            <g fill="#0b3a2e">
+              <rect x="836" y="160" width="6" height="60" rx="2"/>
+              <path d="M839 160 C815 150 806 163 800 157 C816 166 830 166 839 160Z"/>
+              <path d="M839 160 C862 149 872 161 878 155 C863 165 850 166 839 160Z"/>
+              <path d="M839 160 C832 137 842 126 838 119 C847 134 847 150 839 160Z"/>
+            </g>
+            <!-- gedung replika ikan paus (ikon PP. Darul Falah Amtsilati) -->
+            <g fill="#04261e">
+              <ellipse cx="320" cy="192" rx="115" ry="52"/>
+              <path d="M430 188 C466 168 494 176 512 158 C500 190 468 206 434 202Z"/>
+              <path d="M215 172 C205 150 222 132 244 130 C232 146 226 160 232 176Z"/>
+              <circle cx="270" cy="176" r="11" fill="#bfe4ea" opacity=".85"/>
+              <circle cx="310" cy="172" r="11" fill="#bfe4ea" opacity=".85"/>
+              <rect x="330" y="128" width="4" height="24"/>
+              <path d="M334 128 L356 136 L334 144Z"/>
+            </g>
+            <!-- masjid / menara -->
+            <g fill="#04261e">
+              <rect x="608" y="150" width="20" height="70"/>
+              <circle cx="618" cy="146" r="17"/>
+              <path d="M618 112 v18 M610 122 h16"/>
+              <circle cx="618" cy="108" r="6" fill="#04261e"/>
+              <circle cx="622" cy="105" r="6" fill="#8fd0d6"/>
+            </g>
+            <path d="M0,300 L0,210 Q150,178 300,204 T600,196 T900,214 L900,300Z" fill="#08302650"/>
+            <path d="M0,300 L0,230 Q160,206 320,222 T650,218 T900,232 L900,300Z" fill="#062a2170"/>
+          </svg>
+
+          <div class="vm-overlay"></div>
+          <div class="vm-content">
+            <div class="vm-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+            <h3>Profil Pondok DARUL FALAH AMTSILATI<small>– 2024 –</small></h3>
+          </div>
+          <div class="vm-badge">
+            <svg viewBox="0 0 24 24" fill="#ff0000"><path d="M23.5 6.2s-.23-1.64-.94-2.36c-.9-.94-1.9-.95-2.36-1C16.98 2.5 12 2.5 12 2.5h-.01s-4.98 0-8.19.34c-.46.05-1.46.06-2.36 1C.73 4.56.5 6.2.5 6.2S.26 8.13.26 10.06v1.86c0 1.93.24 3.86.24 3.86s.23 1.64.93 2.36c.9.94 2.08.91 2.6 1.01 1.9.18 8.07.35 8.07.35s5-.01 8.2-.35c.46-.06 1.46-.07 2.36-1.01.71-.72.94-2.36.94-2.36s.24-1.93.24-3.86v-1.86c0-1.93-.24-3.86-.24-3.86z"/><path d="M9.75 14.85V7.85l6.5 3.5z" fill="#fff"/></svg>
+            YouTube
+          </div>
+          <div class="vm-duration">04:12</div>
+        </div>
+
+        <!-- Video 2: Kegiatan Santri -->
+        <div class="video-card vc-kegiatan" data-youtube-id="GANTI_ID_VIDEO_KEGIATAN_SANTRI" data-video-title="Kegiatan Santri Sehari-hari" role="button" tabindex="0" aria-label="Putar video Kegiatan Santri Sehari-hari">
+          <div class="vm-sky"></div>
+
+          <svg class="vm-scene" viewBox="0 0 900 300" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,300 L0,220 Q150,196 300,214 T600,206 T900,220 L900,300Z" fill="#3d290a55"/>
+            <path d="M0,300 L0,238 Q160,222 320,232 T650,228 T900,238 L900,300Z" fill="#2a1c0670"/>
+            <!-- santri duduk melingkar (halaqah) -->
+            <g fill="#33230a">
+              <circle cx="205" cy="216" r="15"/>
+              <circle cx="252" cy="232" r="15"/>
+              <circle cx="305" cy="238" r="15"/>
+              <circle cx="358" cy="232" r="15"/>
+              <circle cx="402" cy="216" r="15"/>
+            </g>
+            <!-- kitab / Al-Qur'an terbuka -->
+            <g fill="#33230a">
+              <path d="M470 214 C440 194 412 198 402 210 L402 244 C420 230 448 228 470 240Z"/>
+              <path d="M470 214 C500 194 528 198 538 210 L538 244 C520 230 492 228 470 240Z"/>
+            </g>
+            <!-- lentera -->
+            <g fill="#33230a">
+              <rect x="618" y="198" width="4" height="38"/>
+              <ellipse cx="620" cy="196" rx="12" ry="5"/>
+              <path d="M609 168 q11 -18 22 0 q3 15 -11 22 q-14 -7 -11 -22Z"/>
+            </g>
+          </svg>
+
+          <div class="vm-overlay"></div>
+          <div class="vm-content">
+            <div class="vm-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+            <h3>Kegiatan Santri Sehari-hari<small>Dokumentasi Pondok</small></h3>
+          </div>
+          <div class="vm-badge">
+            <svg viewBox="0 0 24 24" fill="#ff0000"><path d="M23.5 6.2s-.23-1.64-.94-2.36c-.9-.94-1.9-.95-2.36-1C16.98 2.5 12 2.5 12 2.5h-.01s-4.98 0-8.19.34c-.46.05-1.46.06-2.36 1C.73 4.56.5 6.2.5 6.2S.26 8.13.26 10.06v1.86c0 1.93.24 3.86.24 3.86s.23 1.64.93 2.36c.9.94 2.08.91 2.6 1.01 1.9.18 8.07.35 8.07.35s5-.01 8.2-.35c.46-.06 1.46-.07 2.36-1.01.71-.72.94-2.36.94-2.36s.24-1.93.24-3.86v-1.86c0-1.93-.24-3.86-.24-3.86z"/><path d="M9.75 14.85V7.85l6.5 3.5z" fill="#fff"/></svg>
+            YouTube
+          </div>
+          <div class="vm-duration">07:45</div>
+        </div>
+
+        <!-- Video 3: Sambutan Pimpinan -->
+        <div class="video-card vc-sambutan" data-youtube-id="GANTI_ID_VIDEO_SAMBUTAN_PIMPINAN" data-video-title="Sambutan Pimpinan Pondok" role="button" tabindex="0" aria-label="Putar video Sambutan Pimpinan Pondok">
+          <div class="vm-sky"></div>
+
+          <svg class="vm-scene" viewBox="0 0 900 300" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#000" opacity=".35">
+              <path d="M0,0 Q30,150 0,300 L70,300 Q45,150 70,0 Z"/>
+              <path d="M900,0 Q870,150 900,300 L830,300 Q855,150 830,0 Z"/>
+            </g>
+            <path d="M0,300 L0,246 L900,246 L900,300Z" fill="#03110c"/>
+            <!-- podium & mic -->
+            <g fill="#03110c">
+              <path d="M400 246 L388 182 L512 182 L500 246 Z"/>
+              <rect x="446" y="140" width="6" height="44"/>
+              <ellipse cx="449" cy="134" rx="11" ry="13"/>
+            </g>
+          </svg>
+
+          <div class="vm-overlay"></div>
+          <div class="vm-content">
+            <div class="vm-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+            <h3>Sambutan Pimpinan Pondok<small>Pesan &amp; Nasihat</small></h3>
+          </div>
+          <div class="vm-badge">
+            <svg viewBox="0 0 24 24" fill="#ff0000"><path d="M23.5 6.2s-.23-1.64-.94-2.36c-.9-.94-1.9-.95-2.36-1C16.98 2.5 12 2.5 12 2.5h-.01s-4.98 0-8.19.34c-.46.05-1.46.06-2.36 1C.73 4.56.5 6.2.5 6.2S.26 8.13.26 10.06v1.86c0 1.93.24 3.86.24 3.86s.23 1.64.93 2.36c.9.94 2.08.91 2.6 1.01 1.9.18 8.07.35 8.07.35s5-.01 8.2-.35c.46-.06 1.46-.07 2.36-1.01.71-.72.94-2.36.94-2.36s.24-1.93.24-3.86v-1.86c0-1.93-.24-3.86-.24-3.86z"/><path d="M9.75 14.85V7.85l6.5 3.5z" fill="#fff"/></svg>
+            YouTube
+          </div>
+          <div class="vm-duration">05:30</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FEED INSTAGRAM ===================== -->
+  <section class="section-instagram tab-content active" id="instagram" data-tab="home">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Update &amp; Aktivitas Terbaru</span>
+        <h2>IKUTI KAMI DI INSTAGRAM</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="ig-header">
+        <div class="ig-avatar">
+          <div class="ig-avatar-inner">
+            <div class="brand-mark"><span>YPI</span></div>
+          </div>
+        </div>
+
+        <div class="ig-info">
+          <div class="ig-name">PonPes Darul Falah Amtsilati</div>
+          <div class="ig-username">@amtsilatipusat</div>
+          <div class="ig-stats">
+            <div class="ig-stat"><strong>544</strong><span>Posts</span></div>
+            <div class="ig-stat"><strong>34.5K</strong><span>Followers</span></div>
+            <div class="ig-stat"><strong>82</strong><span>Following</span></div>
+          </div>
+        </div>
+
+        <a class="ig-follow-btn" href="https://instagram.com/amtsilatipusat" target="_blank" rel="noopener">Follow</a>
+      </div>
+
+      <div class="ig-grid">
+
+        <div class="ig-post ig-post-1">
+          <div class="ig-post-bg"></div>
+          <div class="ig-post-icon"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11z"/></svg></div>
+          <div class="ig-post-views"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>12.4K</div>
+          <div class="ig-post-overlay"><p class="ig-post-caption">Aspirasi Dari Amtsilati Untuk Negeri</p></div>
+        </div>
+
+        <div class="ig-post ig-post-2">
+          <div class="ig-post-bg"></div>
+          <div class="ig-post-icon"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11z"/></svg></div>
+          <div class="ig-post-views"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>45.2K</div>
+          <div class="ig-post-overlay"><p class="ig-post-caption">Solusi: Matahari Terlalu Nge-jreng ☀️</p></div>
+        </div>
+
+        <div class="ig-post ig-post-3">
+          <div class="ig-post-bg"></div>
+          <div class="ig-post-icon"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11z"/></svg></div>
+          <div class="ig-post-views"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>8.921</div>
+          <div class="ig-post-overlay"><p class="ig-post-caption">Step-Step PSB 26</p></div>
+        </div>
+
+        <div class="ig-post ig-post-4">
+          <div class="ig-post-bg"></div>
+          <div class="ig-post-icon"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11z"/></svg></div>
+          <div class="ig-post-views"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>21.7K</div>
+          <div class="ig-post-overlay"><p class="ig-post-caption">Widodari 2.0</p></div>
+        </div>
+
+        <div class="ig-post ig-post-5">
+          <div class="ig-post-bg"></div>
+          <div class="ig-post-icon"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11z"/></svg></div>
+          <div class="ig-post-views"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>3.102</div>
+          <div class="ig-post-overlay"><p class="ig-post-caption">Serunya Ngaji Bareng Santri Baru</p></div>
+        </div>
+
+        <div class="ig-post ig-post-6">
+          <div class="ig-post-bg"></div>
+          <div class="ig-post-icon"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11z"/></svg></div>
+          <div class="ig-post-views"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>16.8K</div>
+          <div class="ig-post-overlay"><p class="ig-post-caption">Balik Pondok, Bawa Apa Aja?</p></div>
+        </div>
+
+        <div class="ig-post ig-post-7">
+          <div class="ig-post-bg"></div>
+          <div class="ig-post-icon"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11z"/></svg></div>
+          <div class="ig-post-views"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>5.430</div>
+          <div class="ig-post-overlay"><p class="ig-post-caption">Suasana Subuh di Amtsilati</p></div>
+        </div>
+
+        <div class="ig-post ig-post-8">
+          <div class="ig-post-bg"></div>
+          <div class="ig-post-icon"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11z"/></svg></div>
+          <div class="ig-post-views"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>29.6K</div>
+          <div class="ig-post-overlay"><p class="ig-post-caption">Santri Amtsilati Juara Lagi! 🏆</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LOKASI / PETA GOOGLE MAPS ===================== -->
+  <section class="section-lokasi tab-content active" id="lokasi" data-tab="home lokasi">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Kunjungi Kami</span>
+        <h2>LOKASI PONDOK PESANTREN</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="map-wrap">
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps?q=Pondok+Pesantren+Darul+Falah+Amtsilati,+Jl.+Kenanga+II,+Krasak,+Bangsri,+Jepara,+Jawa+Tengah+59453&output=embed"
+            title="Peta Lokasi Pondok Pesantren Darul Falah Amtsilati"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="map-info-card">
+          <span class="map-eyebrow">Alamat Pondok</span>
+          <h3>PP. Darul Falah Amtsilati</h3>
+          <p class="map-address">
+            Dk. Sidorejo, Jl. Kenanga II, RT. 03 / RW. 12, Krasak, Bangsri,
+            Kec. Bangsri, Kabupaten Jepara, Jawa Tengah 59453
+          </p>
+          <ul class="map-contact-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+              Putra: <a href="tel:+6281392275877">0813-9227-5877</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+              Putri: <a href="tel:+6282241442801">0822-4144-2801</a>
+            </li>
+          </ul>
+          <a class="btn-maps" href="https://www.google.com/maps/search/?api=1&query=Pondok+Pesantren+Darul+Falah+Amtsilati+Jl+Kenanga+II+Krasak+Bangsri+Jepara+Jawa+Tengah+59453" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Buka di Google Maps
+          </a>
+          <p class="map-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            Gunakan Ctrl + Scroll untuk memperbesar atau memperkecil peta.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BROSUR ===================== -->
+  <section class="section-brosur tab-content" id="brosur" data-tab="brosur">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Unduh &amp; Info Pendaftaran</span>
+        <h2>Brosur Pondok Pesantren Darul Falah Amtsilati TA. 2026/2027</h2>
+        <div class="underline"></div>
+      </div>
+      <div class="brosur-badge-wrap">
+        <span class="eyebrow-tag">Pendaftaran Pondok Putra &amp; Pondok Putri</span>
+      </div>
+
+      <div class="brosur-grid">
+
+        <div class="brosur-requirements">
+
+          <div class="req-item">
+            <div class="req-number">1</div>
+            <div class="req-text">Bisa membaca Al Qur'an, tulisan arab, latin dan sudah mandiri.</div>
+          </div>
+
+          <div class="req-item">
+            <div class="req-number">2</div>
+            <div class="req-text">
+              Mengisi formulir pendaftaran online atau datang ke lokasi pendaftaran dengan membawa:
+              <ul class="req-sublist">
+                <li>Foto copy legalisir ijazah terakhir (3 lembar)</li>
+                <li>Foto copy legalisir SKHUN &amp; NISN (3 lembar)</li>
+                <li>Akte Kelahiran asli</li>
+                <li>Kartu Keluarga (KK) asli</li>
+                <li>Pas foto 3x4 sebanyak 3 foto (background merah)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="req-item">
+            <div class="req-number">3</div>
+            <div class="req-text">Sanggup menta'ati peraturan Pondok Pesantren Darul Falah Amtsilati.</div>
+          </div>
+
+          <div class="req-item">
+            <div class="req-number">4</div>
+            <div class="req-text">
+              Menyelesaikan pembayaran administrasi pendaftaran Pondok minimal <strong>Rp. 6.000.000,-</strong> untuk pembayaran pertama (bagi yang mendaftar pondok saja). Untuk yang mendaftar Sekolah dan Pondok minimal <strong>Rp. 8.000.000,-</strong> untuk pembayaran pertama. Sisanya bisa diangsur maksimal 3 bulan.
+            </div>
+          </div>
+
+          <div class="req-item">
+            <div class="req-number">5</div>
+            <div class="req-text">Persyaratan yang belum lengkap menyusul selambat-lambatnya satu minggu setelah Santri aktif.</div>
+          </div>
+
+        </div>
+
+        <div class="brosur-sidebar">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            Info Pendaftaran
+          </h3>
+          <div class="brosur-info-item">
+            <strong>Pendaftaran dibuka setiap hari di:</strong>
+            Kantor Yayasan Amtsilati, Bangsri, Jepara
+          </div>
+          <div class="brosur-info-item">
+            <strong>Atau melalui Pendaftaran Online:</strong>
+            <a href="https://psb.amtsilatipusat.com/brosur" target="_blank" rel="noopener">Daftar Santri Baru Amtsilati — psb.amtsilatipusat.com/brosur</a>
+          </div>
+
+          <div class="brosur-divider"></div>
+
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Brosur
+          </h3>
+          <div class="brosur-downloads">
+            <a class="btn-download" href="brosur-depan.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span class="dl-copy">
+                <span class="dl-label">Download Brosur Depan</span>
+                <span class="dl-hint">Format PDF</span>
+              </span>
+            </a>
+            <a class="btn-download secondary" href="brosur-belakang.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span class="dl-copy">
+                <span class="dl-label">Download Brosur Belakang</span>
+                <span class="dl-hint">Format PDF</span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ---------- Gelombang Pendaftaran & Promo ---------- -->
+      <div class="brosur-subsection">
+        <div class="sub-head">
+          <span class="sub-eyebrow">Jangan Sampai Terlewat</span>
+          <h3>Gelombang Pendaftaran &amp; Promo</h3>
+          <div class="sub-underline"></div>
+        </div>
+
+        <div class="promo-grid">
+          <div class="promo-card">
+            <div class="promo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+            <div class="promo-label">Gelombang 1</div>
+            <div class="promo-date">17 November – 16 Januari</div>
+            <div class="promo-reward">Potongan Shodaqoh 50%</div>
+          </div>
+
+          <div class="promo-card">
+            <div class="promo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+            <div class="promo-label">Gelombang 2</div>
+            <div class="promo-date">17 Januari – 16 Februari</div>
+            <div class="promo-reward">Gratis Kitab</div>
+          </div>
+
+          <div class="promo-card bonus">
+            <div class="promo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 22V7M12 7H7.5A2.5 2.5 0 0 1 5 4.5 2.5 2.5 0 0 1 7.5 2C11 2 12 7 12 7ZM12 7h4.5A2.5 2.5 0 0 0 19 4.5 2.5 2.5 0 0 0 16.5 2C13 2 12 7 12 7Z"/></svg></div>
+            <div class="promo-label">Bonus Spesial</div>
+            <div class="promo-reward">GRATIS LAUNDRY &quot;SERAGAM&quot;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- Rincian Biaya Pendaftaran ---------- -->
+      <div class="brosur-subsection">
+        <div class="sub-head">
+          <span class="sub-eyebrow">Transparan &amp; Terperinci</span>
+          <h3>Rincian Biaya Pendaftaran</h3>
+          <div class="sub-underline"></div>
+        </div>
+
+        <div class="cost-grid">
+
+          <div class="cost-card">
+            <h4>I. Awal Tahun</h4>
+            <div class="cost-row"><span>Pendaftaran (MTs/MA &amp; SD/MI)</span><span>GRATIS</span></div>
+            <div class="cost-row"><span>Seragam</span><span>Rp. 400.000</span></div>
+            <div class="cost-row"><span>Kitab</span><span>Rp. 200.000</span></div>
+            <div class="cost-row"><span>Kasur</span><span>Rp. 250.000</span></div>
+            <div class="cost-row"><span>Almari</span><span>Rp. 250.000</span></div>
+            <div class="cost-row"><span>Akhirussanah</span><span>Rp. 100.000</span></div>
+            <div class="cost-row"><span>Shodaqoh</span><span>Rp. 600.000</span></div>
+            <div class="cost-total"><span>Total Awal Tahun</span><span>Rp. 1.800.000</span></div>
+          </div>
+
+          <div class="cost-card">
+            <h4>II. Semester 1 (Khusus MTs/MA)</h4>
+            <div class="cost-row"><span>Syahriah 1 Semester</span><span>Rp. 600.000</span></div>
+            <div class="cost-row"><span>PAS</span><span>Rp. 150.000</span></div>
+            <div class="cost-total"><span>Total Semester 1</span><span>Rp. 750.000</span></div>
+            <p class="cost-note">Khusus jenjang MTs/MA — untuk SD/MI tidak ada biaya semester ini.</p>
+          </div>
+
+          <div class="cost-card">
+            <h4>III. Bulanan</h4>
+            <table class="cost-subtable">
+              <thead>
+                <tr><th>Rincian</th><th>MTs/MA</th><th>SD/MI</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Uang Makan/Bulan</td>
+                  <td>Rp. 450.000</td>
+                  <td>Rp. 750.000</td>
+                </tr>
+                <tr>
+                  <td>Tabungan</td>
+                  <td>Rp. 50.000</td>
+                  <td class="muted">–</td>
+                </tr>
+                <tr class="total">
+                  <td>Total Bulanan</td>
+                  <td>Rp. 500.000</td>
+                  <td>Rp. 750.000</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="cost-note">MTs/MA: makan 2 kali sehari · SD/MI: bebas ambil makan.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="section-faq tab-content" id="faq" data-tab="faq">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Butuh Bantuan?</span>
+        <h2>FAQ — Pertanyaan yang Sering Diajukan</h2>
+        <div class="underline"></div>
+      </div>
+      <p class="faq-lead">Berikut jawaban resmi untuk pertanyaan yang paling sering ditanyakan calon santri dan wali santri seputar PSB Amtsilati.</p>
+
+      <div class="faq-list">
+
+        <div class="faq-item active">
+          <button class="faq-summary" type="button" aria-expanded="true">
+            <span class="faq-num">1</span>
+            <span class="faq-q-text">Berapa biaya pendaftaran santri baru?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <ul>
+                <li><strong>Pembayaran Pertama (Awal Pendaftaran):</strong> Minimal Rp. 6.000.000,- bagi yang mendaftar pondok saja, atau minimal Rp. 8.000.000,- bagi yang mendaftar sekolah dan pondok (sisa dapat diangsur maksimal 3 bulan).</li>
+                <li><strong>Rincian Awal Tahun:</strong> Total Rp. 1.800.000,- (mencakup seragam, kitab, kasur, almari, akhirussanah, dan shodaqoh; biaya pendaftaran awal GRATIS).</li>
+                <li><strong>Biaya Bulanan &amp; Semester:</strong> Menyesuaikan jenjang pendidikan MTs/MA atau SD/MI.</li>
+              </ul>
+              <p>Lihat rincian lengkap di halaman <a href="#brosur" data-tab="brosur">Brosur</a>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-summary" type="button" aria-expanded="false">
+            <span class="faq-num">2</span>
+            <span class="faq-q-text">Apakah pondok menerima santri pindahan?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Menerima santri baru/pindahan selama memenuhi syarat utama: bisa membaca Al-Qur'an, tulisan Arab, Latin, sudah mandiri, serta melengkapi dokumen administratif berikut:</p>
+              <ul>
+                <li>Fotokopi legalisir ijazah terakhir</li>
+                <li>Fotokopi legalisir SKHUN &amp; NISN</li>
+                <li>Akta Kelahiran asli</li>
+                <li>Kartu Keluarga (KK) asli</li>
+                <li>Pas foto berlatar merah</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-summary" type="button" aria-expanded="false">
+            <span class="faq-num">3</span>
+            <span class="faq-q-text">Bagaimana jika berkas belum lengkap saat mendaftar?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Persyaratan administrasi atau berkas yang belum lengkap diizinkan untuk menyusul selambat-lambatnya 1 (satu) minggu setelah santri aktif di pondok.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-summary" type="button" aria-expanded="false">
+            <span class="faq-num">4</span>
+            <span class="faq-q-text">Apakah tersedia program beasiswa atau keringanan biaya?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Tersedia potongan harga melalui gelombang pendaftaran khusus:</p>
+              <ul>
+                <li><strong>Gelombang 1</strong> (17 November – 16 Januari): Potongan uang shodaqoh sebesar 50%.</li>
+                <li><strong>Gelombang 2</strong> (17 Januari – 16 Februari): Gratis Kitab.</li>
+                <li>Serta fasilitas bonus tambahan berupa program <strong>Gratis Laundry "Seragam"</strong>.</li>
+              </ul>
+              <p>Selengkapnya di halaman <a href="#brosur" data-tab="brosur">Brosur</a>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-summary" type="button" aria-expanded="false">
+            <span class="faq-num">5</span>
+            <span class="faq-q-text">Berapa lama proses seleksi hingga pengumuman?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>
+                Pendaftaran dibuka setiap hari secara langsung di Kantor Yayasan Amtsilati Bangsri Jepara, atau online melalui
+                <a href="https://psb.amtsilatipusat.com/brosur" target="_blank" rel="noopener">psb.amtsilatipusat.com/brosur</a>.
+                Untuk informasi durasi seleksi lebih lanjut, hubungi Contact Person resmi:
+              </p>
+              <ul>
+                <li>Pondok Pesantren: <a href="tel:+6285606364587">+62 856-0636-4587</a></li>
+                <li>Bendahara: <a href="tel:+6285829421450">+62 858-2942-1450</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-summary" type="button" aria-expanded="false">
+            <span class="faq-num">6</span>
+            <span class="faq-q-text">Apakah orang tua bisa mendampingi saat tes seleksi?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Mengingat syarat utama santri adalah sudah mandiri serta mampu membaca Al-Qur'an, tulisan Arab, dan Latin, koordinasi lebih lanjut terkait teknis seleksi dapat dikonfirmasikan langsung melalui pengurus di kantor yayasan atau narahubung yang tersedia.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DAFTAR (FORM REGISTRASI) ===================== -->
+  <section class="section-daftar tab-content" id="daftar" data-tab="daftar">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Identitas Santri</span>
+        <h2>Registrasi Santri Baru PPDF Amtsilati TA. 2026/2027</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="daftar-toggle">
+        <button type="button" class="toggle-btn active" data-panel="form">Form Pendaftaran Baru</button>
+        <button type="button" class="toggle-btn" data-panel="status">Cek Status Pendaftaran</button>
+      </div>
+
+      <div class="daftar-panel active" data-panel-content="form">
+      <form class="form-shell" novalidate>
+
+        <!-- ---------- Identitas Santri ---------- -->
+        <div class="form-card">
+          <div class="form-card-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 7-7h2a7 7 0 0 1 7 7v1"/></svg>
+            Identitas Santri
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Mendaftar Di <span class="req">*</span></label>
+            <div class="form-sub-label">Jenis Pondok</div>
+            <div class="chip-group">
+              <div class="chip-option">
+                <input type="radio" name="jenis_pondok" id="pondok_putra" value="Pondok Putra" required>
+                <label class="chip-label" for="pondok_putra">Pondok Putra</label>
+              </div>
+              <div class="chip-option">
+                <input type="radio" name="jenis_pondok" id="pondok_putri" value="Pondok Putri">
+                <label class="chip-label" for="pondok_putri">Pondok Putri</label>
+              </div>
+            </div>
+            <div class="form-sub-label" style="margin-top:14px;">Jenjang</div>
+            <div class="chip-group">
+              <div class="chip-option">
+                <input type="radio" name="jenjang_pondok" id="jenjang_mts" value="MTs" required>
+                <label class="chip-label" for="jenjang_mts">MTs</label>
+              </div>
+              <div class="chip-option">
+                <input type="radio" name="jenjang_pondok" id="jenjang_ma" value="MA">
+                <label class="chip-label" for="jenjang_ma">MA</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="foto_santri">Foto Santri (Ukuran 3x4)</label>
+            <div class="file-upload">
+              <input type="file" id="foto_santri" name="foto_santri" accept="image/*">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <div class="file-upload-text">Klik atau seret foto ke sini</div>
+              <div class="file-upload-hint">Format JPG/PNG, maks 2MB</div>
+              <div class="file-upload-filename"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nisn">NISN</label>
+            <input class="form-input" type="text" id="nisn" name="nisn" inputmode="numeric" maxlength="10" placeholder="10 digit NISN">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nik">NIK <span class="req">*</span></label>
+            <input class="form-input" type="text" id="nik" name="nik" inputmode="numeric" maxlength="16" placeholder="16 digit sesuai KK" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nama_lengkap">Nama Lengkap (Huruf Kapital) <span class="req">*</span></label>
+            <input class="form-input form-uppercase" type="text" id="nama_lengkap" name="nama_lengkap" placeholder="Contoh: MUHAMMAD FULAN" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="tempat_lahir">Tempat Lahir <span class="req">*</span></label>
+            <input class="form-input" type="text" id="tempat_lahir" name="tempat_lahir" placeholder="Contoh: Jepara" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Tanggal Lahir <span class="req">*</span></label>
+            <div class="form-row">
+              <div class="form-group">
+                <select class="form-select select-tanggal-lahir" name="tgl_lahir_tanggal" required>
+                  <option value="" selected disabled>Tanggal</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select class="form-select" id="tgl_lahir_bulan" name="tgl_lahir_bulan" required>
+                  <option value="" selected disabled>Bulan</option>
+                  <option>Januari</option><option>Februari</option><option>Maret</option><option>April</option>
+                  <option>Mei</option><option>Juni</option><option>Juli</option><option>Agustus</option>
+                  <option>September</option><option>Oktober</option><option>November</option><option>Desember</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select class="form-select select-tahun-lahir" name="tgl_lahir_tahun" required>
+                  <option value="" selected disabled>Tahun</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="jenis_kelamin">Jenis Kelamin <span class="req">*</span></label>
+            <select class="form-select" id="jenis_kelamin" name="jenis_kelamin" required>
+              <option value="" selected disabled>Pilih jenis kelamin</option>
+              <option>Laki-laki</option>
+              <option>Perempuan</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="sekolah_asal">Sekolah Asal</label>
+            <input class="form-input" type="text" id="sekolah_asal" name="sekolah_asal" placeholder="Nama sekolah asal" style="margin-bottom:10px;">
+            <select class="form-select" id="jenjang_sekolah_asal" name="jenjang_sekolah_asal">
+              <option value="" selected disabled>Pilih jenjang sekolah asal</option>
+              <option>SD/MI</option>
+              <option>SMP/MTs</option>
+              <option>SMA/SMK/MA</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="alamat">Alamat Lengkap</label>
+            <textarea class="form-textarea" id="alamat" name="alamat" placeholder="Nama jalan, RT/RW, dusun/desa"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="provinsi">Provinsi</label>
+            <select class="form-select" id="provinsi" name="provinsi">
+              <option value="" disabled>Pilih provinsi</option>
+              <option>Aceh</option><option>Sumatera Utara</option><option>Sumatera Barat</option>
+              <option>Riau</option><option>Kepulauan Riau</option><option>Jambi</option>
+              <option>Sumatera Selatan</option><option>Kepulauan Bangka Belitung</option><option>Bengkulu</option>
+              <option>Lampung</option><option>DKI Jakarta</option><option>Jawa Barat</option>
+              <option selected>Jawa Tengah</option><option>DI Yogyakarta</option><option>Jawa Timur</option>
+              <option>Banten</option><option>Bali</option><option>Nusa Tenggara Barat</option>
+              <option>Nusa Tenggara Timur</option><option>Kalimantan Barat</option><option>Kalimantan Tengah</option>
+              <option>Kalimantan Selatan</option><option>Kalimantan Timur</option><option>Kalimantan Utara</option>
+              <option>Sulawesi Utara</option><option>Sulawesi Tengah</option><option>Sulawesi Selatan</option>
+              <option>Sulawesi Tenggara</option><option>Gorontalo</option><option>Sulawesi Barat</option>
+              <option>Maluku</option><option>Maluku Utara</option><option>Papua</option>
+              <option>Papua Barat</option><option>Papua Tengah</option><option>Papua Pegunungan</option>
+              <option>Papua Selatan</option><option>Papua Barat Daya</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="kabupaten">Kabupaten / Kota</label>
+            <input class="form-input" type="text" id="kabupaten" name="kabupaten" placeholder="Contoh: Kabupaten Jepara">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="kecamatan">Kecamatan</label>
+            <input class="form-input" type="text" id="kecamatan" name="kecamatan" placeholder="Contoh: Bangsri">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="kode_pos">Kode Pos</label>
+            <input class="form-input" type="text" id="kode_pos" name="kode_pos" inputmode="numeric" maxlength="5" placeholder="5 digit kode pos">
+          </div>
+        </div>
+
+        <!-- ---------- Identitas Orang Tua / Wali ---------- -->
+        <div class="form-card">
+          <div class="form-card-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Identitas Orang Tua / Wali
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nama_ayah">Nama Ayah (Huruf Kapital) <span class="req">*</span></label>
+            <input class="form-input form-uppercase" type="text" id="nama_ayah" name="nama_ayah" placeholder="Contoh: AHMAD FULAN" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nik_ayah">NIK Ayah</label>
+            <input class="form-input" type="text" id="nik_ayah" name="nik_ayah" inputmode="numeric" maxlength="16" placeholder="16 digit sesuai KTP">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="pekerjaan_ayah">Pekerjaan Ayah</label>
+            <select class="form-select" id="pekerjaan_ayah" name="pekerjaan_ayah">
+              <option value="" selected disabled>Pilih pekerjaan</option>
+              <option>PNS/ASN</option><option>TNI/Polri</option><option>Pegawai Swasta</option>
+              <option>Wiraswasta / Pedagang</option><option>Petani / Nelayan</option><option>Buruh</option>
+              <option>Pensiunan</option><option>Lainnya</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="penghasilan_ayah">Penghasilan Ayah</label>
+            <select class="form-select" id="penghasilan_ayah" name="penghasilan_ayah">
+              <option value="" selected disabled>Pilih kisaran penghasilan</option>
+              <option>500.000 - 1.000.000</option>
+              <option>1.000.000 - 1.500.000</option>
+              <option>1.500.000 - 2.000.000</option>
+              <option>2.000.000 - 3.000.000</option>
+              <option>&lt; 4.000.000</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nama_ibu">Nama Lengkap Ibu (Huruf Kapital) <span class="req">*</span></label>
+            <input class="form-input form-uppercase" type="text" id="nama_ibu" name="nama_ibu" placeholder="Contoh: SITI FULANAH" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nik_ibu">NIK Ibu</label>
+            <input class="form-input" type="text" id="nik_ibu" name="nik_ibu" inputmode="numeric" maxlength="16" placeholder="16 digit sesuai KTP">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="pekerjaan_ibu">Pekerjaan Ibu</label>
+            <select class="form-select" id="pekerjaan_ibu" name="pekerjaan_ibu">
+              <option value="" selected disabled>Pilih pekerjaan</option>
+              <option>Ibu Rumah Tangga</option><option>PNS/ASN</option><option>Wiraswasta</option>
+              <option>Petani</option><option>Pedagang</option><option>Guru/Pengajar</option><option>Lainnya</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="penghasilan_ibu">Penghasilan Ibu</label>
+            <select class="form-select" id="penghasilan_ibu" name="penghasilan_ibu">
+              <option value="" selected disabled>Pilih kisaran penghasilan</option>
+              <option>500.000 - 1.000.000</option>
+              <option>1.000.000 - 1.500.000</option>
+              <option>1.500.000 - 2.000.000</option>
+              <option>2.000.000 - 3.000.000</option>
+              <option>&lt; 4.000.000</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="status_rumah">Status Rumah</label>
+            <select class="form-select" id="status_rumah" name="status_rumah">
+              <option value="" selected disabled>Pilih status rumah</option>
+              <option>Milik Sendiri</option><option>Kontrak/Sewa</option>
+              <option>Menumpang Orang Tua/Saudara</option><option>Lainnya</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="telepon_ortu">No. Telepon Orang Tua <span class="req">*</span></label>
+            <input class="form-input" type="tel" id="telepon_ortu" name="telepon_ortu" placeholder="Contoh: 08123456789" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="foto_kk">Upload Foto KK (Kartu Keluarga)</label>
+            <div class="file-upload">
+              <input type="file" id="foto_kk" name="foto_kk" accept="image/*,.pdf">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <div class="file-upload-text">Klik atau seret berkas ke sini</div>
+              <div class="file-upload-hint">Format JPG/PNG/PDF, maks 5MB</div>
+              <div class="file-upload-filename"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------- Verifikasi & Kirim ---------- -->
+        <div class="form-card">
+          <div class="form-card-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg>
+            Verifikasi &amp; Kirim
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Kode Verifikasi (Captcha) <span class="req">*</span></label>
+            <div class="captcha-row">
+              <canvas class="captcha-canvas" width="140" height="46" aria-hidden="true"></canvas>
+              <button type="button" class="captcha-refresh" aria-label="Muat ulang captcha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+              </button>
+              <input class="form-input captcha-input" type="text" name="captcha" placeholder="Masukkan kode di atas" style="flex:1; min-width:160px;" required autocomplete="off">
+            </div>
+            <p class="captcha-error">Kode verifikasi tidak sesuai, silakan coba lagi.</p>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-submit">SIMPAN DATA</button>
+            <button type="reset" class="btn-reset">RESET DATA</button>
+          </div>
+
+          <div class="form-success">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="form-success-text">Data berhasil divalidasi.</span>
+          </div>
+          <p class="status-error form-submit-error">Gagal mengirim data ke server. Silakan coba lagi.</p>
+        </div>
+
+      </form>
+      </div>
+
+      <div class="daftar-panel" data-panel-content="status">
+        <div class="form-shell">
+          <div class="form-card">
+            <div class="form-card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              Cek Status Pendaftaran
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">No. Pendaftaran <span class="req">*</span></label>
+              <input class="form-input status-no-input" type="text" placeholder="Contoh: AMT-2026-00123">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">PIN <span class="req">*</span></label>
+              <input class="form-input status-pin-input" type="text" inputmode="numeric" placeholder="6 digit PIN pendaftaran">
+              <button type="button" class="link-forgot">Lupa No. Pendaftaran / PIN?</button>
+            </div>
+
+            <div class="forgot-panel" hidden>
+              <p class="form-hint">Masukkan NIK dan Tanggal Lahir santri persis seperti saat mendaftar, untuk menemukan kembali No. Pendaftaran &amp; PIN Anda.</p>
+              <div class="form-group">
+                <label class="form-label">NIK</label>
+                <input class="form-input forgot-nik-input" type="text" inputmode="numeric" maxlength="16" placeholder="16 digit NIK santri">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Tanggal Lahir</label>
+                <div class="form-row">
+                  <select class="form-select select-tanggal-lahir forgot-tanggal-select">
+                    <option value="" selected disabled>Tanggal</option>
+                  </select>
+                  <select class="form-select forgot-bulan-select">
+                    <option value="" selected disabled>Bulan</option>
+                    <option>Januari</option><option>Februari</option><option>Maret</option><option>April</option>
+                    <option>Mei</option><option>Juni</option><option>Juli</option><option>Agustus</option>
+                    <option>September</option><option>Oktober</option><option>November</option><option>Desember</option>
+                  </select>
+                  <select class="form-select select-tahun-lahir forgot-tahun-select">
+                    <option value="" selected disabled>Tahun</option>
+                  </select>
+                </div>
+              </div>
+              <button type="button" class="btn-submit btn-forgot-search">CARI DATA SAYA</button>
+              <p class="status-error forgot-error">Data tidak ditemukan. Periksa kembali NIK dan tanggal lahir.</p>
+              <div class="forgot-result"></div>
+            </div>
+
+            <p class="status-hint">Contoh untuk mencoba tampilan (demo): No. Pendaftaran <strong>AMT-2026-00123</strong> &amp; PIN <strong>482915</strong>.</p>
+
+            <button type="button" class="btn-submit btn-cek-status" style="margin-top:16px;">CEK STATUS</button>
+            <p class="status-error status-check-error">Nomor pendaftaran atau PIN tidak ditemukan. Periksa kembali data Anda.</p>
+
+            <div class="status-result">
+              <div class="status-result-header">
+                <div class="status-result-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div>
+                  <div class="status-result-title">Status Ditemukan</div>
+                  <div class="status-result-sub">Data pendaftaran atas nama di bawah ini</div>
+                </div>
+              </div>
+
+              <div class="status-info-grid">
+                <div class="status-info-item">
+                  <div class="label">Nama Santri</div>
+                  <div class="value result-nama">MUHAMMAD FULAN</div>
+                </div>
+                <div class="status-info-item">
+                  <div class="label">No. Pendaftaran</div>
+                  <div class="value result-no-pendaftaran">AMT-2026-00123</div>
+                </div>
+                <div class="status-info-item">
+                  <div class="label">Mendaftar Di</div>
+                  <div class="value result-mendaftar-di">Pondok Putra · MTs</div>
+                </div>
+                <div class="status-info-item">
+                  <div class="label">Status</div>
+                  <div class="value"><span class="status-badge success result-status-badge">Terverifikasi</span></div>
+                </div>
+              </div>
+
+              <div class="status-timeline">
+                <div class="status-step" data-step="1">
+                  <div class="dot">1</div>
+                  <div class="step-label">Isi Formulir</div>
+                </div>
+                <div class="status-step" data-step="2">
+                  <div class="dot">2</div>
+                  <div class="step-label">Catat No. &amp; PIN</div>
+                </div>
+                <div class="status-step" data-step="3">
+                  <div class="dot">3</div>
+                  <div class="step-label">Konfirmasi</div>
+                </div>
+                <div class="status-step" data-step="4">
+                  <div class="dot">4</div>
+                  <div class="step-label">Pembayaran</div>
+                </div>
+                <div class="status-step" data-step="5">
+                  <div class="dot">5</div>
+                  <div class="step-label">Penempatan Kamar</div>
+                </div>
+              </div>
+
+              <div class="status-detail">
+                <div class="status-detail-card">
+                  <div class="form-card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 7-7h2a7 7 0 0 1 7 7v1"/></svg>
+                    Detail Identitas Santri
+                  </div>
+                  <div class="detail-rows" data-detail-group="santri"></div>
+                </div>
+                <div class="status-detail-card">
+                  <div class="form-card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    Detail Orang Tua / Wali
+                  </div>
+                  <div class="detail-rows" data-detail-group="ortu"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section-daftar tab-content" id="daftar-mi" data-tab="daftar-mi">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Identitas Santri</span>
+        <h2>Registrasi Santri Baru PPDF Amtsilati TA. 2026/2027</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="daftar-toggle">
+        <button type="button" class="toggle-btn active" data-panel="form">Form Pendaftaran Baru</button>
+        <button type="button" class="toggle-btn" data-panel="status">Cek Status Pendaftaran</button>
+      </div>
+
+      <div class="daftar-panel active" data-panel-content="form">
+      <form class="form-shell" novalidate>
+
+        <!-- ---------- Identitas Santri ---------- -->
+        <div class="form-card">
+          <div class="form-card-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 7-7h2a7 7 0 0 1 7 7v1"/></svg>
+            Identitas Santri
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Mendaftar Di <span class="req">*</span></label>
+            <input type="hidden" name="jenis_pondok" value="Madrasah Ibtidaiyah">
+            <div class="chip-group">
+              <div class="chip-option">
+                <input type="checkbox" name="jenjang_pondok" id="mi_confirm" value="MI" required>
+                <label class="chip-label" for="mi_confirm">MI</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="foto_santri_mi">Foto Santri (Ukuran 3x4)</label>
+            <div class="file-upload">
+              <input type="file" id="foto_santri_mi" name="foto_santri" accept="image/*">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <div class="file-upload-text">Klik atau seret foto ke sini</div>
+              <div class="file-upload-hint">Format JPG/PNG, maks 2MB</div>
+              <div class="file-upload-filename"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nisn_mi">NISN</label>
+            <input class="form-input" type="text" id="nisn_mi" name="nisn" inputmode="numeric" maxlength="10" placeholder="10 digit NISN">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nik_mi">NIK <span class="req">*</span></label>
+            <input class="form-input" type="text" id="nik_mi" name="nik" inputmode="numeric" maxlength="16" placeholder="16 digit sesuai KK" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nama_lengkap_mi">Nama Lengkap (Huruf Kapital) <span class="req">*</span></label>
+            <input class="form-input form-uppercase" type="text" id="nama_lengkap_mi" name="nama_lengkap" placeholder="Contoh: MUHAMMAD FULAN" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="tempat_lahir_mi">Tempat Lahir <span class="req">*</span></label>
+            <input class="form-input" type="text" id="tempat_lahir_mi" name="tempat_lahir" placeholder="Contoh: Jepara" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Tanggal Lahir <span class="req">*</span></label>
+            <div class="form-row">
+              <div class="form-group">
+                <select class="form-select select-tanggal-lahir" name="tgl_lahir_tanggal" required>
+                  <option value="" selected disabled>Tanggal</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select class="form-select" id="tgl_lahir_bulan_mi" name="tgl_lahir_bulan" required>
+                  <option value="" selected disabled>Bulan</option>
+                  <option>Januari</option><option>Februari</option><option>Maret</option><option>April</option>
+                  <option>Mei</option><option>Juni</option><option>Juli</option><option>Agustus</option>
+                  <option>September</option><option>Oktober</option><option>November</option><option>Desember</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select class="form-select select-tahun-lahir" name="tgl_lahir_tahun" required>
+                  <option value="" selected disabled>Tahun</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="jenis_kelamin_mi">Jenis Kelamin <span class="req">*</span></label>
+            <select class="form-select" id="jenis_kelamin_mi" name="jenis_kelamin" required>
+              <option value="" selected disabled>Pilih jenis kelamin</option>
+              <option>Laki-laki</option>
+              <option>Perempuan</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="sekolah_asal_mi">Sekolah Asal</label>
+            <input class="form-input" type="text" id="sekolah_asal_mi" name="sekolah_asal" placeholder="Nama sekolah asal" style="margin-bottom:10px;">
+            <select class="form-select" id="jenjang_sekolah_asal_mi" name="jenjang_sekolah_asal">
+              <option value="" selected disabled>Pilih jenjang sekolah asal</option>
+              <option>SD/MI</option>
+              <option>SMP/MTs</option>
+              <option>SMA/SMK/MA</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="alamat_mi">Alamat Lengkap</label>
+            <textarea class="form-textarea" id="alamat_mi" name="alamat" placeholder="Nama jalan, RT/RW, dusun/desa"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="provinsi_mi">Provinsi</label>
+            <select class="form-select" id="provinsi_mi" name="provinsi">
+              <option value="" disabled>Pilih provinsi</option>
+              <option>Aceh</option><option>Sumatera Utara</option><option>Sumatera Barat</option>
+              <option>Riau</option><option>Kepulauan Riau</option><option>Jambi</option>
+              <option>Sumatera Selatan</option><option>Kepulauan Bangka Belitung</option><option>Bengkulu</option>
+              <option>Lampung</option><option>DKI Jakarta</option><option>Jawa Barat</option>
+              <option selected>Jawa Tengah</option><option>DI Yogyakarta</option><option>Jawa Timur</option>
+              <option>Banten</option><option>Bali</option><option>Nusa Tenggara Barat</option>
+              <option>Nusa Tenggara Timur</option><option>Kalimantan Barat</option><option>Kalimantan Tengah</option>
+              <option>Kalimantan Selatan</option><option>Kalimantan Timur</option><option>Kalimantan Utara</option>
+              <option>Sulawesi Utara</option><option>Sulawesi Tengah</option><option>Sulawesi Selatan</option>
+              <option>Sulawesi Tenggara</option><option>Gorontalo</option><option>Sulawesi Barat</option>
+              <option>Maluku</option><option>Maluku Utara</option><option>Papua</option>
+              <option>Papua Barat</option><option>Papua Tengah</option><option>Papua Pegunungan</option>
+              <option>Papua Selatan</option><option>Papua Barat Daya</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="kabupaten_mi">Kabupaten / Kota</label>
+            <input class="form-input" type="text" id="kabupaten_mi" name="kabupaten" placeholder="Contoh: Kabupaten Jepara">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="kecamatan_mi">Kecamatan</label>
+            <input class="form-input" type="text" id="kecamatan_mi" name="kecamatan" placeholder="Contoh: Bangsri">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="kode_pos_mi">Kode Pos</label>
+            <input class="form-input" type="text" id="kode_pos_mi" name="kode_pos" inputmode="numeric" maxlength="5" placeholder="5 digit kode pos">
+          </div>
+        </div>
+
+        <!-- ---------- Identitas Orang Tua / Wali ---------- -->
+        <div class="form-card">
+          <div class="form-card-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Identitas Orang Tua / Wali
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nama_ayah_mi">Nama Ayah (Huruf Kapital) <span class="req">*</span></label>
+            <input class="form-input form-uppercase" type="text" id="nama_ayah_mi" name="nama_ayah" placeholder="Contoh: AHMAD FULAN" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nik_ayah_mi">NIK Ayah</label>
+            <input class="form-input" type="text" id="nik_ayah_mi" name="nik_ayah" inputmode="numeric" maxlength="16" placeholder="16 digit sesuai KTP">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="pekerjaan_ayah_mi">Pekerjaan Ayah</label>
+            <select class="form-select" id="pekerjaan_ayah_mi" name="pekerjaan_ayah">
+              <option value="" selected disabled>Pilih pekerjaan</option>
+              <option>PNS/ASN</option><option>TNI/Polri</option><option>Pegawai Swasta</option>
+              <option>Wiraswasta / Pedagang</option><option>Petani / Nelayan</option><option>Buruh</option>
+              <option>Pensiunan</option><option>Lainnya</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="penghasilan_ayah_mi">Penghasilan Ayah</label>
+            <select class="form-select" id="penghasilan_ayah_mi" name="penghasilan_ayah">
+              <option value="" selected disabled>Pilih kisaran penghasilan</option>
+              <option>500.000 - 1.000.000</option>
+              <option>1.000.000 - 1.500.000</option>
+              <option>1.500.000 - 2.000.000</option>
+              <option>2.000.000 - 3.000.000</option>
+              <option>&lt; 4.000.000</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nama_ibu_mi">Nama Lengkap Ibu (Huruf Kapital) <span class="req">*</span></label>
+            <input class="form-input form-uppercase" type="text" id="nama_ibu_mi" name="nama_ibu" placeholder="Contoh: SITI FULANAH" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nik_ibu_mi">NIK Ibu</label>
+            <input class="form-input" type="text" id="nik_ibu_mi" name="nik_ibu" inputmode="numeric" maxlength="16" placeholder="16 digit sesuai KTP">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="pekerjaan_ibu_mi">Pekerjaan Ibu</label>
+            <select class="form-select" id="pekerjaan_ibu_mi" name="pekerjaan_ibu">
+              <option value="" selected disabled>Pilih pekerjaan</option>
+              <option>Ibu Rumah Tangga</option><option>PNS/ASN</option><option>Wiraswasta</option>
+              <option>Petani</option><option>Pedagang</option><option>Guru/Pengajar</option><option>Lainnya</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="penghasilan_ibu_mi">Penghasilan Ibu</label>
+            <select class="form-select" id="penghasilan_ibu_mi" name="penghasilan_ibu">
+              <option value="" selected disabled>Pilih kisaran penghasilan</option>
+              <option>500.000 - 1.000.000</option>
+              <option>1.000.000 - 1.500.000</option>
+              <option>1.500.000 - 2.000.000</option>
+              <option>2.000.000 - 3.000.000</option>
+              <option>&lt; 4.000.000</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="status_rumah_mi">Status Rumah</label>
+            <select class="form-select" id="status_rumah_mi" name="status_rumah">
+              <option value="" selected disabled>Pilih status rumah</option>
+              <option>Milik Sendiri</option><option>Kontrak/Sewa</option>
+              <option>Menumpang Orang Tua/Saudara</option><option>Lainnya</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="telepon_ortu_mi">No. Telepon Orang Tua <span class="req">*</span></label>
+            <input class="form-input" type="tel" id="telepon_ortu_mi" name="telepon_ortu" placeholder="Contoh: 08123456789" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="foto_kk_mi">Upload Foto KK (Kartu Keluarga)</label>
+            <div class="file-upload">
+              <input type="file" id="foto_kk_mi" name="foto_kk" accept="image/*,.pdf">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <div class="file-upload-text">Klik atau seret berkas ke sini</div>
+              <div class="file-upload-hint">Format JPG/PNG/PDF, maks 5MB</div>
+              <div class="file-upload-filename"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------- Verifikasi & Kirim ---------- -->
+        <div class="form-card">
+          <div class="form-card-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg>
+            Verifikasi &amp; Kirim
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Kode Verifikasi (Captcha) <span class="req">*</span></label>
+            <div class="captcha-row">
+              <canvas class="captcha-canvas" width="140" height="46" aria-hidden="true"></canvas>
+              <button type="button" class="captcha-refresh" aria-label="Muat ulang captcha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+              </button>
+              <input class="form-input captcha-input" type="text" name="captcha" placeholder="Masukkan kode di atas" style="flex:1; min-width:160px;" required autocomplete="off">
+            </div>
+            <p class="captcha-error">Kode verifikasi tidak sesuai, silakan coba lagi.</p>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-submit">SIMPAN DATA</button>
+            <button type="reset" class="btn-reset">RESET DATA</button>
+          </div>
+
+          <div class="form-success">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="form-success-text">Data berhasil divalidasi.</span>
+          </div>
+          <p class="status-error form-submit-error">Gagal mengirim data ke server. Silakan coba lagi.</p>
+        </div>
+
+      </form>
+      </div>
+
+      <div class="daftar-panel" data-panel-content="status">
+        <div class="form-shell">
+          <div class="form-card">
+            <div class="form-card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              Cek Status Pendaftaran
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">No. Pendaftaran <span class="req">*</span></label>
+              <input class="form-input status-no-input" type="text" placeholder="Contoh: AMT-2026-00123">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">PIN <span class="req">*</span></label>
+              <input class="form-input status-pin-input" type="text" inputmode="numeric" placeholder="6 digit PIN pendaftaran">
+              <button type="button" class="link-forgot">Lupa No. Pendaftaran / PIN?</button>
+            </div>
+
+            <div class="forgot-panel" hidden>
+              <p class="form-hint">Masukkan NIK dan Tanggal Lahir santri persis seperti saat mendaftar, untuk menemukan kembali No. Pendaftaran &amp; PIN Anda.</p>
+              <div class="form-group">
+                <label class="form-label">NIK</label>
+                <input class="form-input forgot-nik-input" type="text" inputmode="numeric" maxlength="16" placeholder="16 digit NIK santri">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Tanggal Lahir</label>
+                <div class="form-row">
+                  <select class="form-select select-tanggal-lahir forgot-tanggal-select">
+                    <option value="" selected disabled>Tanggal</option>
+                  </select>
+                  <select class="form-select forgot-bulan-select">
+                    <option value="" selected disabled>Bulan</option>
+                    <option>Januari</option><option>Februari</option><option>Maret</option><option>April</option>
+                    <option>Mei</option><option>Juni</option><option>Juli</option><option>Agustus</option>
+                    <option>September</option><option>Oktober</option><option>November</option><option>Desember</option>
+                  </select>
+                  <select class="form-select select-tahun-lahir forgot-tahun-select">
+                    <option value="" selected disabled>Tahun</option>
+                  </select>
+                </div>
+              </div>
+              <button type="button" class="btn-submit btn-forgot-search">CARI DATA SAYA</button>
+              <p class="status-error forgot-error">Data tidak ditemukan. Periksa kembali NIK dan tanggal lahir.</p>
+              <div class="forgot-result"></div>
+            </div>
+
+            <p class="status-hint">Contoh untuk mencoba tampilan (demo): No. Pendaftaran <strong>AMT-2026-00123</strong> &amp; PIN <strong>482915</strong>.</p>
+
+            <button type="button" class="btn-submit btn-cek-status" style="margin-top:16px;">CEK STATUS</button>
+            <p class="status-error status-check-error">Nomor pendaftaran atau PIN tidak ditemukan. Periksa kembali data Anda.</p>
+
+            <div class="status-result">
+              <div class="status-result-header">
+                <div class="status-result-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div>
+                  <div class="status-result-title">Status Ditemukan</div>
+                  <div class="status-result-sub">Data pendaftaran atas nama di bawah ini</div>
+                </div>
+              </div>
+
+              <div class="status-info-grid">
+                <div class="status-info-item">
+                  <div class="label">Nama Santri</div>
+                  <div class="value result-nama">MUHAMMAD FULAN</div>
+                </div>
+                <div class="status-info-item">
+                  <div class="label">No. Pendaftaran</div>
+                  <div class="value result-no-pendaftaran">AMT-2026-00123</div>
+                </div>
+                <div class="status-info-item">
+                  <div class="label">Mendaftar Di</div>
+                  <div class="value result-mendaftar-di">Pondok Putra · MTs</div>
+                </div>
+                <div class="status-info-item">
+                  <div class="label">Status</div>
+                  <div class="value"><span class="status-badge success result-status-badge">Terverifikasi</span></div>
+                </div>
+              </div>
+
+              <div class="status-timeline">
+                <div class="status-step" data-step="1">
+                  <div class="dot">1</div>
+                  <div class="step-label">Isi Formulir</div>
+                </div>
+                <div class="status-step" data-step="2">
+                  <div class="dot">2</div>
+                  <div class="step-label">Catat No. &amp; PIN</div>
+                </div>
+                <div class="status-step" data-step="3">
+                  <div class="dot">3</div>
+                  <div class="step-label">Konfirmasi</div>
+                </div>
+                <div class="status-step" data-step="4">
+                  <div class="dot">4</div>
+                  <div class="step-label">Pembayaran</div>
+                </div>
+                <div class="status-step" data-step="5">
+                  <div class="dot">5</div>
+                  <div class="step-label">Penempatan Kamar</div>
+                </div>
+              </div>
+
+              <div class="status-detail">
+                <div class="status-detail-card">
+                  <div class="form-card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 7-7h2a7 7 0 0 1 7 7v1"/></svg>
+                    Detail Identitas Santri
+                  </div>
+                  <div class="detail-rows" data-detail-group="santri"></div>
+                </div>
+                <div class="status-detail-card">
+                  <div class="form-card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    Detail Orang Tua / Wali
+                  </div>
+                  <div class="detail-rows" data-detail-group="ortu"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+
+        <div class="footer-brand">
+          <div class="footer-org-name">YAYASAN PENDIDIKAN ISLAM AMTSILATI</div>
+          <div class="footer-pesantren-name">PONDOK PESANTREN &quot;DARUL FALAH AMTSILATI&quot;</div>
+          <div class="footer-region">Bangsri, Jepara, Jawa Tengah</div>
+
+          <div class="footer-block">
+            <div class="footer-block-label">Sekretariat</div>
+            <p>Dk. Sidorejo, Jl. Kenanga II, RT. 03 / RW. 12, Krasak, Bangsri, Kec. Bangsri, Kabupaten Jepara, Jawa Tengah 59453</p>
+          </div>
+
+          <div class="footer-block">
+            <div class="footer-block-label">Contact Us</div>
+            <ul class="footer-contact-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+                Telp. Resmi: <a href="tel:+62291000000">[Isi Nomor Telepon Kantor]</a>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+                Info PSB Putra: <a href="tel:+6281392275877">0813-9227-5877</a>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+                Info PSB Putri: <a href="tel:+6282241442801">0822-4144-2801</a>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+                <a href="mailto:Amtsilati.pusat@gmail.com">Amtsilati.pusat@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-social">
+          <div class="footer-social-label">Media Sosial Kami</div>
+          <div class="fb-widget">
+            <div class="fb-cover">
+              <div class="fb-avatar"><div class="brand-mark"><span>YPI</span></div></div>
+            </div>
+            <div class="fb-body">
+              <div class="fb-name">
+                PP. Darul Falah Amtsilati
+                <svg viewBox="0 0 24 24" fill="#1877f2"><path d="M12 2 3 6v6c0 5.25 3.5 9.5 9 10 5.5-.5 9-4.75 9-10V6z"/><path d="M9.5 12.5 11.3 14l3.7-4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="fb-meta">Sekolah Pesantren · @amtsilatipusat</div>
+              <div class="fb-stats"><strong>12rb</strong> Suka · <strong>15rb</strong> Pengikut</div>
+              <div class="fb-actions">
+                <a class="fb-btn fb-btn-follow" href="#" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                  Ikuti Halaman
+                </a>
+                <a class="fb-btn fb-btn-share" href="#">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#050505" stroke-width="2"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4M12 2v14"/></svg>
+                  Bagikan
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">© Pondok Pesantren Darul Falah Amtsilati 2026.</p>
+        <p class="dev-credit">Developed by: [Nama Anda]</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ---------- Mobile nav toggle ----------
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    navToggle.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('is-open');
+      navToggle.classList.toggle('is-open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('is-open');
+        navToggle.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ---------- Sistem tab / slide konten (Home, Alur Pendaftaran, Informasi, Lokasi) ----------
+    const tabContents = document.querySelectorAll('.tab-content');
+    const tabLinks = document.querySelectorAll('[data-tab]');
+
+    function switchTab(tabName) {
+      tabContents.forEach(section => {
+        const groups = section.dataset.tab.split(/\s+/);
+        section.classList.toggle('active', groups.includes(tabName));
+      });
+      tabLinks.forEach(link => {
+        const li = link.closest('li');
+        if (li) li.classList.toggle('active', link.dataset.tab === tabName);
+      });
+      // Section yang baru aktif bisa saja berisi FAQ yang sedang terbuka;
+      // hitung ulang tingginya sekarang karena sebelumnya tersembunyi (scrollHeight = 0).
+      document.querySelectorAll('.faq-item.active').forEach((item) => {
+        const answer = item.querySelector('.faq-answer');
+        const inner = item.querySelector('.faq-answer-inner');
+        if (answer && inner) answer.style.maxHeight = inner.scrollHeight + 'px';
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    tabLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        switchTab(link.dataset.tab);
+      });
+    });
+
+    // ---------- Image slider / carousel ----------
+    const track = document.getElementById('sliderTrack');
+    const slides = Array.from(track.children);
+    const dotsWrap = document.getElementById('sliderDots');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const frame = document.getElementById('sliderFrame');
+
+    let current = 0;
+    let autoplayTimer = null;
+    const AUTOPLAY_MS = 4500;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.setAttribute('aria-label', 'Ke slide ' + (i + 1));
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    function render() {
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function goTo(index) {
+      current = (index + slides.length) % slides.length;
+      render();
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayTimer = setInterval(next, AUTOPLAY_MS);
+    }
+    function stopAutoplay() {
+      if (autoplayTimer) clearInterval(autoplayTimer);
+    }
+
+    nextBtn.addEventListener('click', () => { next(); startAutoplay(); });
+    prevBtn.addEventListener('click', () => { prev(); startAutoplay(); });
+    frame.addEventListener('mouseenter', stopAutoplay);
+    frame.addEventListener('mouseleave', startAutoplay);
+
+    render();
+    startAutoplay();
+
+    // ---------- Video YouTube (3 kartu): klik/tekan Enter untuk memuat iframe asli ----------
+    // TODO: ganti nilai data-youtube-id di setiap .video-card pada HTML dengan ID video YouTube yang sebenarnya
+    function loadYoutubeVideo(card) {
+      const videoId = card.dataset.youtubeId || 'GANTI_DENGAN_ID_VIDEO_ANDA';
+      const title = card.dataset.videoTitle || 'Video Pondok Darul Falah Amtsilati';
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      iframe.title = title;
+      iframe.frameBorder = '0';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;';
+      card.innerHTML = '';
+      card.appendChild(iframe);
+    }
+
+    document.querySelectorAll('.video-card').forEach((card) => {
+      card.addEventListener('click', () => loadYoutubeVideo(card), { once: true });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          loadYoutubeVideo(card);
+        }
+      }, { once: true });
+    });
+
+    // ---------- FAQ: accordion buka/tutup ----------
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      const btn = item.querySelector('.faq-summary');
+      const answer = item.querySelector('.faq-answer');
+      const inner = item.querySelector('.faq-answer-inner');
+
+      function openItem() {
+        item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = inner.scrollHeight + 'px';
+      }
+      function closeItem() {
+        item.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = '0px';
+      }
+
+      if (item.classList.contains('active')) openItem();
+
+      btn.addEventListener('click', () => {
+        if (item.classList.contains('active')) closeItem();
+        else openItem();
+      });
+    });
+
+    // Recalculate open FAQ heights on resize (text reflow can change content height)
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.faq-item.active').forEach((item) => {
+        const answer = item.querySelector('.faq-answer');
+        const inner = item.querySelector('.faq-answer-inner');
+        answer.style.maxHeight = inner.scrollHeight + 'px';
+      });
+    });
+
+    // ============================================================
+    // Generic init untuk setiap section formulir pendaftaran (class .section-daftar).
+    // Dipakai bersama oleh tab DAFTAR (Pondok) dan DAFTAR MI — setiap section
+    // punya state captcha & form sendiri-sendiri, saling independen.
+    // ============================================================
+
+    // Backend di-deploy sebagai Vercel Serverless Functions pada domain yang sama dengan
+    // halaman ini (lihat folder api/), jadi cukup pakai path relatif '/api/' — tidak perlu
+    // isi domain manual dan tidak ada masalah CORS. Kosongkan ('') untuk kembali ke mode demo.
+    const API_BASE_URL = '/api/';
+
+    const CHECKMARK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+
+    const DEMO_STATUS = {
+      no_pendaftaran: 'AMT-2026-00123',
+      pin: '482915',
+      nama_lengkap: 'MUHAMMAD FULAN',
+      mendaftar_di: 'Pondok Putra · MTs',
+      status_label: 'Terverifikasi',
+      current_step: 4,
+      // Detail lengkap (untuk tampilan read-only "seperti form pendaftaran")
+      foto_santri: null,
+      nisn: '0123456789',
+      nik: '3320012345670001',
+      tempat_lahir: 'Jepara',
+      tanggal_lahir: '2012-05-14',
+      jenis_kelamin: 'Laki-laki',
+      sekolah_asal: 'SD Negeri 1 Bangsri',
+      jenjang_sekolah_asal: 'SD/MI',
+      alamat: 'Jl. Melati No. 12',
+      provinsi: 'Jawa Tengah',
+      kabupaten: 'Kabupaten Jepara',
+      kecamatan: 'Bangsri',
+      kode_pos: '59453',
+      nama_ayah: 'AHMAD FULAN',
+      nik_ayah: '3320011234560001',
+      pekerjaan_ayah: 'Wiraswasta / Pedagang',
+      penghasilan_ayah: '2.000.000 - 3.000.000',
+      nama_ibu: 'SITI FULANAH',
+      nik_ibu: '3320019876540001',
+      pekerjaan_ibu: 'Ibu Rumah Tangga',
+      penghasilan_ibu: '1.000.000 - 1.500.000',
+      status_rumah: 'Milik Sendiri',
+      telepon_ortu: '081234567890',
+      foto_kk: null,
+    };
+
+    // Definisi kolom untuk tampilan detail read-only (urutannya mengikuti field di form pendaftaran)
+    const SANTRI_DETAIL_FIELDS = [
+      { key: 'mendaftar_di', label: 'Mendaftar Di' },
+      { key: 'foto_santri', label: 'Foto Santri', type: 'file' },
+      { key: 'nisn', label: 'NISN' },
+      { key: 'nik', label: 'NIK' },
+      { key: 'nama_lengkap', label: 'Nama Lengkap' },
+      { key: 'tempat_lahir', label: 'Tempat Lahir' },
+      { key: 'tanggal_lahir', label: 'Tanggal Lahir', type: 'date' },
+      { key: 'jenis_kelamin', label: 'Jenis Kelamin' },
+      { key: 'sekolah_asal', label: 'Sekolah Asal' },
+      { key: 'jenjang_sekolah_asal', label: 'Jenjang Sekolah Asal' },
+      { key: 'alamat', label: 'Alamat Lengkap' },
+      { key: 'provinsi', label: 'Provinsi' },
+      { key: 'kabupaten', label: 'Kabupaten / Kota' },
+      { key: 'kecamatan', label: 'Kecamatan' },
+      { key: 'kode_pos', label: 'Kode Pos' },
+    ];
+    const ORTU_DETAIL_FIELDS = [
+      { key: 'nama_ayah', label: 'Nama Ayah' },
+      { key: 'nik_ayah', label: 'NIK Ayah' },
+      { key: 'pekerjaan_ayah', label: 'Pekerjaan Ayah' },
+      { key: 'penghasilan_ayah', label: 'Penghasilan Ayah' },
+      { key: 'nama_ibu', label: 'Nama Ibu' },
+      { key: 'nik_ibu', label: 'NIK Ibu' },
+      { key: 'pekerjaan_ibu', label: 'Pekerjaan Ibu' },
+      { key: 'penghasilan_ibu', label: 'Penghasilan Ibu' },
+      { key: 'status_rumah', label: 'Status Rumah' },
+      { key: 'telepon_ortu', label: 'No. Telepon Orang Tua' },
+      { key: 'foto_kk', label: 'Foto Kartu Keluarga', type: 'file' },
+    ];
+
+    function renderDetailRows(container, fields, data) {
+      if (!container) return;
+      container.innerHTML = '';
+      fields.forEach(({ key, label, type }) => {
+        const raw = data[key];
+        const row = document.createElement('div');
+        row.className = 'detail-row';
+
+        const labelEl = document.createElement('span');
+        labelEl.className = 'detail-label';
+        labelEl.textContent = label;
+
+        const valueEl = document.createElement('span');
+        valueEl.className = 'detail-value';
+
+        if (type === 'file') {
+          if (raw) {
+            const a = document.createElement('a');
+            a.href = raw;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            a.textContent = 'Lihat file';
+            valueEl.appendChild(a);
+          } else {
+            valueEl.textContent = 'Belum diunggah';
+            valueEl.classList.add('empty');
+          }
+        } else if (type === 'date' && raw) {
+          const d = new Date(raw);
+          valueEl.textContent = isNaN(d.getTime())
+            ? raw
+            : d.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+        } else {
+          valueEl.textContent = raw || '-';
+          if (!raw) valueEl.classList.add('empty');
+        }
+
+        row.appendChild(labelEl);
+        row.appendChild(valueEl);
+        container.appendChild(row);
+      });
+    }
+
+    function renderStatusResult(section, data) {
+      section.querySelector('.result-nama').textContent = data.nama_lengkap;
+      section.querySelector('.result-no-pendaftaran').textContent = data.no_pendaftaran;
+      section.querySelector('.result-mendaftar-di').textContent = data.mendaftar_di;
+      section.querySelector('.result-status-badge').textContent = data.status_label;
+
+      section.querySelectorAll('.status-timeline .status-step').forEach((stepEl) => {
+        const stepNum = parseInt(stepEl.dataset.step, 10);
+        const dot = stepEl.querySelector('.dot');
+        stepEl.classList.remove('done', 'current');
+        if (stepNum < data.current_step) {
+          stepEl.classList.add('done');
+          dot.innerHTML = CHECKMARK_SVG;
+        } else if (stepNum === data.current_step) {
+          stepEl.classList.add('current');
+          dot.textContent = stepNum;
+        } else {
+          dot.textContent = stepNum;
+        }
+      });
+
+      // Tampilan read-only lengkap (seperti form pendaftaran, tapi tidak bisa diedit)
+      renderDetailRows(section.querySelector('[data-detail-group="santri"]'), SANTRI_DETAIL_FIELDS, data);
+      renderDetailRows(section.querySelector('[data-detail-group="ortu"]'), ORTU_DETAIL_FIELDS, data);
+    }
+
+    document.querySelectorAll('.section-daftar').forEach((section) => {
+
+      // ---------- Isi dropdown Tanggal & Tahun lahir (bisa lebih dari 1 pasang per section) ----------
+      const thisYear = new Date().getFullYear();
+      section.querySelectorAll('.select-tanggal-lahir').forEach((selTanggal) => {
+        for (let d = 1; d <= 31; d++) {
+          const opt = document.createElement('option');
+          opt.value = d; opt.textContent = d;
+          selTanggal.appendChild(opt);
+        }
+      });
+      section.querySelectorAll('.select-tahun-lahir').forEach((selTahun) => {
+        for (let y = thisYear - 3; y >= thisYear - 25; y--) {
+          const opt = document.createElement('option');
+          opt.value = y; opt.textContent = y;
+          selTahun.appendChild(opt);
+        }
+      });
+
+      // ---------- Captcha canvas (independen per section) ----------
+      let captchaCode = '';
+      const captchaCanvas = section.querySelector('.captcha-canvas');
+      const captchaCtx = captchaCanvas ? captchaCanvas.getContext('2d') : null;
+
+      function generateCaptcha() {
+        const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // tanpa 0/O/1/I agar tidak rancu
+        captchaCode = '';
+        for (let i = 0; i < 5; i++) {
+          captchaCode += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        if (!captchaCtx) return;
+
+        const w = captchaCanvas.width, h = captchaCanvas.height;
+        captchaCtx.clearRect(0, 0, w, h);
+        captchaCtx.fillStyle = '#f4f1e6';
+        captchaCtx.fillRect(0, 0, w, h);
+
+        for (let i = 0; i < 5; i++) {
+          captchaCtx.strokeStyle = `rgba(0,77,64,${0.15 + Math.random() * 0.2})`;
+          captchaCtx.beginPath();
+          captchaCtx.moveTo(Math.random() * w, Math.random() * h);
+          captchaCtx.lineTo(Math.random() * w, Math.random() * h);
+          captchaCtx.stroke();
+        }
+
+        const charWidth = w / captchaCode.length;
+        captchaCode.split('').forEach((ch, i) => {
+          captchaCtx.save();
+          const x = charWidth * i + charWidth / 2;
+          const y = h / 2 + (Math.random() * 8 - 4);
+          captchaCtx.translate(x, y);
+          captchaCtx.rotate((Math.random() * 30 - 15) * Math.PI / 180);
+          captchaCtx.font = 'bold 22px Poppins, sans-serif';
+          captchaCtx.fillStyle = `rgb(${20 + Math.random() * 40},${60 + Math.random() * 30},${50 + Math.random() * 20})`;
+          captchaCtx.textAlign = 'center';
+          captchaCtx.textBaseline = 'middle';
+          captchaCtx.fillText(ch, 0, 0);
+          captchaCtx.restore();
+        });
+
+        for (let i = 0; i < 25; i++) {
+          captchaCtx.fillStyle = `rgba(0,77,64,${Math.random() * 0.3})`;
+          captchaCtx.beginPath();
+          captchaCtx.arc(Math.random() * w, Math.random() * h, 1, 0, Math.PI * 2);
+          captchaCtx.fill();
+        }
+      }
+      generateCaptcha();
+
+      const captchaRefreshBtn = section.querySelector('.captcha-refresh');
+      const captchaInput = section.querySelector('.captcha-input');
+      const captchaErrorEl = section.querySelector('.captcha-error');
+      if (captchaRefreshBtn) {
+        captchaRefreshBtn.addEventListener('click', () => {
+          generateCaptcha();
+          if (captchaInput) captchaInput.value = '';
+          if (captchaErrorEl) captchaErrorEl.classList.remove('show');
+        });
+      }
+
+      // ---------- Submit & reset form pendaftaran ----------
+      const registrasiForm = section.querySelector('.form-shell');
+      const formSuccessEl = section.querySelector('.form-success');
+      const formSuccessTextEl = section.querySelector('.form-success-text');
+      const formSubmitErrorEl = section.querySelector('.daftar-panel[data-panel-content="form"] .status-error');
+
+      if (registrasiForm) {
+        const submitBtn = registrasiForm.querySelector('.btn-submit');
+
+        registrasiForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          formSuccessEl.classList.remove('show');
+          formSubmitErrorEl.classList.remove('show');
+
+          if (!registrasiForm.checkValidity()) {
+            registrasiForm.reportValidity();
+            return;
+          }
+
+          const enteredCode = (captchaInput.value || '').trim().toUpperCase();
+          if (enteredCode !== captchaCode) {
+            captchaErrorEl.classList.add('show');
+            generateCaptcha();
+            captchaInput.value = '';
+            captchaInput.focus();
+            return;
+          }
+          captchaErrorEl.classList.remove('show');
+
+          const originalBtnText = submitBtn.textContent;
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'MENYIMPAN...';
+
+          if (!API_BASE_URL) {
+            setTimeout(() => {
+              formSuccessTextEl.textContent =
+                'Data berhasil divalidasi (mode demo — belum tersambung ke server). Isi API_BASE_URL di script setelah backend terpasang agar data benar-benar tersimpan dan No. Pendaftaran/PIN dibuat otomatis.';
+              formSuccessEl.classList.add('show');
+              formSuccessEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              submitBtn.disabled = false;
+              submitBtn.textContent = originalBtnText;
+            }, 500);
+            return;
+          }
+
+          try {
+            const res = await fetch(API_BASE_URL + 'daftar', {
+              method: 'POST',
+              body: new FormData(registrasiForm),
+            });
+            const data = await res.json();
+
+            if (!res.ok || !data.success) {
+              throw new Error(data.message || 'Gagal menyimpan data.');
+            }
+
+            formSuccessTextEl.textContent =
+              `Pendaftaran berhasil! No. Pendaftaran: ${data.no_pendaftaran} — PIN: ${data.pin}. Mohon dicatat, keduanya diperlukan untuk cek status.`;
+            formSuccessEl.classList.add('show');
+            formSuccessEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } catch (err) {
+            formSubmitErrorEl.textContent = err.message || 'Gagal mengirim data ke server. Silakan coba lagi.';
+            formSubmitErrorEl.classList.add('show');
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+          }
+        });
+
+        registrasiForm.addEventListener('reset', () => {
+          formSuccessEl.classList.remove('show');
+          formSubmitErrorEl.classList.remove('show');
+          captchaErrorEl.classList.remove('show');
+          section.querySelectorAll('.file-upload').forEach((wrap) => {
+            wrap.classList.remove('has-file');
+            wrap.querySelector('.file-upload-filename').textContent = '';
+          });
+          generateCaptcha();
+        });
+      }
+
+      // ---------- Toggle: Form Pendaftaran Baru <-> Cek Status Pendaftaran (khusus section ini) ----------
+      section.querySelectorAll('.toggle-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          section.querySelectorAll('.toggle-btn').forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          const target = btn.dataset.panel;
+          section.querySelectorAll('.daftar-panel').forEach((panel) => {
+            panel.classList.toggle('active', panel.dataset.panelContent === target);
+          });
+        });
+      });
+
+      // ---------- Cek Status Pendaftaran (khusus section ini) ----------
+      const cekStatusBtn = section.querySelector('.btn-cek-status');
+      if (cekStatusBtn) {
+        cekStatusBtn.addEventListener('click', async () => {
+          const noInput = section.querySelector('.status-no-input');
+          const pinInput = section.querySelector('.status-pin-input');
+          const statusErrorEl = section.querySelector('.status-check-error');
+          const statusResultEl = section.querySelector('.status-result');
+
+          const no = (noInput.value || '').trim().toUpperCase();
+          const pin = (pinInput.value || '').trim();
+
+          statusErrorEl.classList.remove('show');
+          statusResultEl.classList.remove('show');
+
+          if (!no || !pin) {
+            statusErrorEl.textContent = 'Mohon isi No. Pendaftaran dan PIN terlebih dahulu.';
+            statusErrorEl.classList.add('show');
+            return;
+          }
+
+          const originalBtnText = cekStatusBtn.textContent;
+          cekStatusBtn.disabled = true;
+          cekStatusBtn.textContent = 'MEMERIKSA...';
+
+          if (!API_BASE_URL) {
+            setTimeout(() => {
+              if (no === DEMO_STATUS.no_pendaftaran && pin === DEMO_STATUS.pin) {
+                renderStatusResult(section, DEMO_STATUS);
+                statusResultEl.classList.add('show');
+                statusResultEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              } else {
+                statusErrorEl.textContent = 'Nomor pendaftaran atau PIN tidak ditemukan. (Mode demo — coba AMT-2026-00123 / 482915)';
+                statusErrorEl.classList.add('show');
+              }
+              cekStatusBtn.disabled = false;
+              cekStatusBtn.textContent = originalBtnText;
+            }, 500);
+            return;
+          }
+
+          try {
+            const res = await fetch(API_BASE_URL + 'cek-status', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ no_pendaftaran: no, pin }),
+            });
+            const data = await res.json();
+
+            if (!res.ok || !data.success) {
+              throw new Error(data.message || 'Data tidak ditemukan.');
+            }
+
+            renderStatusResult(section, data);
+            statusResultEl.classList.add('show');
+            statusResultEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } catch (err) {
+            statusErrorEl.textContent = err.message || 'Terjadi kesalahan. Silakan coba lagi.';
+            statusErrorEl.classList.add('show');
+          } finally {
+            cekStatusBtn.disabled = false;
+            cekStatusBtn.textContent = originalBtnText;
+          }
+        });
+      }
+
+      // ---------- Lupa No. Pendaftaran / PIN? (cari pakai NIK + Tanggal Lahir) ----------
+      const linkForgot = section.querySelector('.link-forgot');
+      const forgotPanel = section.querySelector('.forgot-panel');
+      if (linkForgot && forgotPanel) {
+        linkForgot.addEventListener('click', () => {
+          const isHidden = forgotPanel.hasAttribute('hidden');
+          if (isHidden) {
+            forgotPanel.removeAttribute('hidden');
+            linkForgot.textContent = 'Sembunyikan pencarian';
+          } else {
+            forgotPanel.setAttribute('hidden', '');
+            linkForgot.textContent = 'Lupa No. Pendaftaran / PIN?';
+          }
+        });
+      }
+
+      const forgotSearchBtn = section.querySelector('.btn-forgot-search');
+      if (forgotSearchBtn) {
+        forgotSearchBtn.addEventListener('click', async () => {
+          const nikInput = section.querySelector('.forgot-nik-input');
+          const tglSel = section.querySelector('.forgot-tanggal-select');
+          const blnSel = section.querySelector('.forgot-bulan-select');
+          const thnSel = section.querySelector('.forgot-tahun-select');
+          const forgotErrorEl = section.querySelector('.forgot-error');
+          const forgotResultEl = section.querySelector('.forgot-result');
+
+          const nik = (nikInput.value || '').trim();
+          const tgl = tglSel.value, bln = blnSel.value, thn = thnSel.value;
+
+          forgotErrorEl.classList.remove('show');
+          forgotResultEl.innerHTML = '';
+
+          if (!nik || !tgl || !bln || !thn) {
+            forgotErrorEl.textContent = 'Mohon lengkapi NIK dan tanggal lahir terlebih dahulu.';
+            forgotErrorEl.classList.add('show');
+            return;
+          }
+
+          const BULAN_MAP = {
+            Januari: 1, Februari: 2, Maret: 3, April: 4, Mei: 5, Juni: 6,
+            Juli: 7, Agustus: 8, September: 9, Oktober: 10, November: 11, Desember: 12,
+          };
+          const tanggalLahirISO = `${thn}-${String(BULAN_MAP[bln]).padStart(2, '0')}-${String(tgl).padStart(2, '0')}`;
+
+          const originalBtnText = forgotSearchBtn.textContent;
+          forgotSearchBtn.disabled = true;
+          forgotSearchBtn.textContent = 'MENCARI...';
+
+          function showFound(data) {
+            forgotResultEl.innerHTML = `
+              <div class="forgot-found">
+                Data ditemukan atas nama <strong>${data.nama_lengkap}</strong><br>
+                No. Pendaftaran: <strong>${data.no_pendaftaran}</strong> — PIN: <strong>${data.pin}</strong>
+              </div>`;
+            const noInput = section.querySelector('.status-no-input');
+            const pinInput = section.querySelector('.status-pin-input');
+            noInput.value = data.no_pendaftaran;
+            pinInput.value = data.pin;
+            forgotPanel.setAttribute('hidden', '');
+            if (linkForgot) linkForgot.textContent = 'Lupa No. Pendaftaran / PIN?';
+            // Langsung jalankan Cek Status supaya detail lengkap langsung terlihat
+            cekStatusBtn.click();
+          }
+
+          if (!API_BASE_URL) {
+            setTimeout(() => {
+              if (nik === DEMO_STATUS.nik && tanggalLahirISO === DEMO_STATUS.tanggal_lahir) {
+                showFound(DEMO_STATUS);
+              } else {
+                forgotErrorEl.textContent = 'Data tidak ditemukan. (Mode demo — coba NIK 3320012345670001, lahir 14 Mei 2012)';
+                forgotErrorEl.classList.add('show');
+              }
+              forgotSearchBtn.disabled = false;
+              forgotSearchBtn.textContent = originalBtnText;
+            }, 500);
+            return;
+          }
+
+          try {
+            const res = await fetch(API_BASE_URL + 'lupa-pin', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ nik, tanggal_lahir: tanggalLahirISO }),
+            });
+            const data = await res.json();
+
+            if (!res.ok || !data.success) {
+              throw new Error(data.message || 'Data tidak ditemukan.');
+            }
+            showFound(data);
+          } catch (err) {
+            forgotErrorEl.textContent = err.message || 'Terjadi kesalahan. Silakan coba lagi.';
+            forgotErrorEl.classList.add('show');
+          } finally {
+            forgotSearchBtn.disabled = false;
+            forgotSearchBtn.textContent = originalBtnText;
+          }
+        });
+      }
+
+    });
+  </script>
+
+</body>
+</html>
