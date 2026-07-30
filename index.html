@@ -808,11 +808,14 @@
   .chip-option input:focus-visible + .chip-label{ outline:2px solid var(--green-800); outline-offset:2px; }
 
   .file-upload{
-    position:relative; border:1.5px dashed var(--border-soft); border-radius:10px;
+    position:relative; display:block; border:1.5px dashed var(--border-soft); border-radius:10px;
     padding:20px; text-align:center; cursor:pointer; transition:.2s ease;
   }
   .file-upload:hover{ border-color:var(--green-800); background:rgba(0,77,64,.03); }
-  .file-upload input[type="file"]{ position:absolute; inset:0; opacity:0; cursor:pointer; }
+  .file-upload input[type="file"]{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+    clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
   .file-upload svg{ width:24px; height:24px; color:var(--green-800); margin-bottom:8px; }
   .file-upload .file-upload-text{ font-family:var(--font-display); font-size:.84rem; font-weight:600; color:var(--ink); }
   .file-upload .file-upload-hint{ font-size:.72rem; color:var(--ink-soft); margin-top:3px; }
@@ -2038,13 +2041,13 @@
 
           <div class="form-group">
             <label class="form-label" for="foto_santri">Foto Santri (Ukuran 3x4)</label>
-            <div class="file-upload">
+            <label class="file-upload" for="foto_santri">
               <input type="file" id="foto_santri" name="foto_santri" accept="image/*">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
               <div class="file-upload-text">Klik atau seret foto ke sini</div>
               <div class="file-upload-hint">Format JPG/PNG, maks 2MB</div>
               <div class="file-upload-filename"></div>
-            </div>
+            </label>
           </div>
 
           <div class="form-group">
@@ -2238,13 +2241,13 @@
 
           <div class="form-group">
             <label class="form-label" for="foto_kk">Upload Foto KK (Kartu Keluarga)</label>
-            <div class="file-upload">
+            <label class="file-upload" for="foto_kk">
               <input type="file" id="foto_kk" name="foto_kk" accept="image/*,.pdf">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
               <div class="file-upload-text">Klik atau seret berkas ke sini</div>
               <div class="file-upload-hint">Format JPG/PNG/PDF, maks 5MB</div>
               <div class="file-upload-filename"></div>
-            </div>
+            </label>
           </div>
         </div>
 
@@ -2447,13 +2450,13 @@
 
           <div class="form-group">
             <label class="form-label" for="foto_santri_mi">Foto Santri (Ukuran 3x4)</label>
-            <div class="file-upload">
+            <label class="file-upload" for="foto_santri_mi">
               <input type="file" id="foto_santri_mi" name="foto_santri" accept="image/*">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
               <div class="file-upload-text">Klik atau seret foto ke sini</div>
               <div class="file-upload-hint">Format JPG/PNG, maks 2MB</div>
               <div class="file-upload-filename"></div>
-            </div>
+            </label>
           </div>
 
           <div class="form-group">
@@ -2647,13 +2650,13 @@
 
           <div class="form-group">
             <label class="form-label" for="foto_kk_mi">Upload Foto KK (Kartu Keluarga)</label>
-            <div class="file-upload">
+            <label class="file-upload" for="foto_kk_mi">
               <input type="file" id="foto_kk_mi" name="foto_kk" accept="image/*,.pdf">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
               <div class="file-upload-text">Klik atau seret berkas ke sini</div>
               <div class="file-upload-hint">Format JPG/PNG/PDF, maks 5MB</div>
               <div class="file-upload-filename"></div>
-            </div>
+            </label>
           </div>
         </div>
 
