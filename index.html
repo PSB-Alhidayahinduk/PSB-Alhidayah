@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PSB Alhidayah Induk — Pondok Pesantren Alhidayah Induk</title>
+<title>PSB Amtsilati — Pondok Pesantren Darul Falah Amtsilati</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
@@ -744,60 +744,8 @@
     background-repeat:no-repeat; background-position:right 12px center; background-size:16px; padding-right:34px;
   }
 
-  .radio-chip-group{ display:flex; flex-wrap:wrap; gap:10px; }
-  .radio-chip{ position:relative; }
-  .radio-chip input{ position:absolute; inset:0; opacity:0; cursor:pointer; margin:0; }
-  .radio-chip span{
-    display:inline-flex; align-items:center; padding:9px 20px; border-radius:24px;
-    border:1.5px solid var(--border-soft); font-family:var(--font-display); font-weight:600;
-    font-size:.83rem; color:var(--ink-soft); transition:.2s ease;
-  }
-  .radio-chip input:checked + span{ background:var(--green-800); border-color:var(--green-800); color:var(--gold); }
-  .radio-chip input:focus-visible + span{ outline:2px solid var(--green-800); outline-offset:2px; }
-
   .date-select-row{ display:grid; grid-template-columns:1fr 1.3fr 1fr; gap:10px; }
   .school-origin-row{ display:grid; grid-template-columns:1.5fr 1fr; gap:10px; }
-
-  .file-upload{
-    display:flex; align-items:center; gap:12px; border:1.5px dashed var(--border-soft);
-    border-radius:8px; padding:13px 16px; cursor:pointer; transition:.2s ease;
-  }
-  .file-upload:hover{ border-color:var(--green-800); background:rgba(0,77,64,.03); }
-  .file-upload input{ position:absolute; width:1px; height:1px; opacity:0; overflow:hidden; }
-  .file-upload svg{ width:20px; height:20px; color:var(--green-800); flex-shrink:0; }
-  .file-upload .fu-text{ font-size:.82rem; color:var(--ink-soft); }
-  .file-upload .fu-text strong{ color:var(--green-800); }
-
-  .captcha-box{
-    margin-top:36px; padding:22px 20px; border-radius:var(--radius-md);
-    background:rgba(0,77,64,.04); border:1px dashed var(--border-soft);
-  }
-  .captcha-box > label{
-    display:block; font-family:var(--font-display); font-weight:700; font-size:.82rem;
-    color:var(--ink); margin-bottom:12px;
-  }
-  .captcha-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; }
-  #captchaCanvas{ border-radius:8px; border:1px solid var(--border-soft); background:#eef1ee; }
-  .captcha-refresh{
-    width:42px; height:42px; border-radius:8px; border:1.5px solid var(--border-soft); flex-shrink:0;
-    display:flex; align-items:center; justify-content:center; color:var(--green-800); transition:.2s ease;
-  }
-  .captcha-refresh:hover{ background:var(--green-800); color:#fff; border-color:var(--green-800); }
-  .captcha-refresh svg{ width:18px; height:18px; }
-
-  .form-actions{ display:flex; gap:14px; margin-top:32px; flex-wrap:wrap; }
-  .btn-submit, .btn-reset{
-    flex:1; min-width:180px; font-family:var(--font-display); font-weight:700;
-    font-size:.92rem; padding:14px 0; border-radius:10px; transition:.2s ease; text-align:center; color:#fff;
-  }
-  .btn-submit{ background:var(--check-green); }
-  .btn-submit:hover{ filter:brightness(.93); }
-  .btn-reset{ background:var(--red-bright); }
-  .btn-reset:hover{ filter:brightness(.92); }
-
-  .form-status{ display:none; margin-top:18px; padding:14px 16px; border-radius:8px; font-size:.85rem; }
-  .form-status.success{ display:block; background:rgba(47,191,113,.12); color:#1f7a4d; border:1px solid rgba(47,191,113,.35); }
-  .form-status.error{ display:block; background:rgba(232,54,43,.1); color:var(--red-bright); border:1px solid rgba(232,54,43,.3); }
 
   /* ===================== DAFTAR (FORM REGISTRASI) ===================== */
   .section-daftar{
@@ -1209,7 +1157,7 @@
         <div class="brand-mark"><span>YPI</span></div>
         <div class="brand-text">
           Panitia Penerimaan Santri Baru
-          <b>Yayasan Taman Pendidikan Islam Alhidayah</b>
+          <b>Yayasan Pendidikan Islam Amtsilati</b>
         </div>
       </a>
 
@@ -1240,8 +1188,8 @@
         <span class="eyebrow-tag">Penerimaan Santri Baru</span>
 
         <h1>
-          YAYASAN TAMAN PENDIDIKAN ISLAM ALHIDAYAH
-          <span class="accent">ALHIDAYAH INDUK</span>
+          YAYASAN PENDIDIKAN ISLAM AMTSILATI PONDOK PESANTREN
+          <span class="accent">DARUL FALAH AMTSILATI</span>
         </h1>
         <p class="subtitle">PUTRA&nbsp;–&nbsp;PUTRI</p>
 
@@ -1285,7 +1233,7 @@
           </div>
         </div>
 
-        <a class="cta-daftar" href="https://psb.amtsilatipusat.com/daftar" target="_blank" rel="noopener">
+        <a class="cta-daftar" href="#daftar" data-tab="daftar">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           Daftar Sekarang
         </a>
@@ -1364,7 +1312,7 @@
           <h3 class="step-title">Isi Formulir Online</h3>
           <p class="step-desc">
             Silahkan Anda kunjungi di link berikut:
-            <a href="https://psb.amtsilatipusat.com/daftar" target="_blank" rel="noopener">psb.Alhidayah.com/daftar</a>
+            <a href="https://psb.amtsilatipusat.com/daftar" target="_blank" rel="noopener">psb.amtsilatipusat.com/daftar</a>
           </p>
         </div>
 
@@ -1388,7 +1336,7 @@
           <div class="step-number">4</div>
           <h3 class="step-title">Pembayaran Administrasi</h3>
           <p class="step-desc">
-            Setelah data dikonfirmasi, langkah selanjutnya adalah membayar Administrasi pendaftaran di Kantor Alhidayah Induk.
+            Setelah data dikonfirmasi, langkah selanjutnya adalah membayar Administrasi pendaftaran di Kantor Yayasan Amtsilati.
           </p>
         </div>
 
@@ -1429,7 +1377,7 @@
           <div class="info-card-header">⏰ Tempat Pendaftaran</div>
           <div class="info-card-body">
             <ul>
-              <li><strong>PP. ALHIDAYAH INDUK</strong></li>
+              <li><strong>PP. DARUL FALAH AMTSILATI</strong></li>
               <li>Jl. Kenanga II RT. 03 RW. 12 Bangsri – Jepara 59453 Jateng</li>
               <li>Info : 0813-9227-5877 (Putra) | 0822-4144-2801 (Putri)</li>
             </ul>
@@ -1456,10 +1404,10 @@
     <div class="container">
       <div class="section-head">
         <span class="section-eyebrow">Kenali Kami Lebih Dekat</span>
-        <h2>TENTANG PP. ALHIDAYAH INDUK</h2>
+        <h2>TENTANG PP. DARUL FALAH AMTSILATI</h2>
         <div class="underline"></div>
       </div>
-      <p class="profile-subtitle">Profil PP. ALHIDAYAH INDUK 2024 :</p>
+      <p class="profile-subtitle">Profil PP. Darul Falah Amtsilati 2024 :</p>
 
       <div class="video-grid">
 
@@ -1702,7 +1650,7 @@
 
         <div class="map-info-card">
           <span class="map-eyebrow">Alamat Pondok</span>
-          <h3>PP. Alhidayah Induk</h3>
+          <h3>PP. Darul Falah Amtsilati</h3>
           <p class="map-address">
             Dk. Sidorejo, Jl. Kenanga II, RT. 03 / RW. 12, Krasak, Bangsri,
             Kec. Bangsri, Kabupaten Jepara, Jawa Tengah 59453
@@ -1735,7 +1683,7 @@
     <div class="container">
       <div class="section-head">
         <span class="section-eyebrow">Unduh &amp; Info Pendaftaran</span>
-        <h2>Brosur Pondok Pesantren Alhidayah Induk TA. 2026/2027</h2>
+        <h2>Brosur Pondok Pesantren Darul Falah Amtsilati TA. 2026/2027</h2>
         <div class="underline"></div>
       </div>
       <div class="brosur-badge-wrap">
@@ -1767,7 +1715,7 @@
 
           <div class="req-item">
             <div class="req-number">3</div>
-            <div class="req-text">Sanggup menta'ati peraturan Pondok Pesantren Alhidayah Induk.</div>
+            <div class="req-text">Sanggup menta'ati peraturan Pondok Pesantren Darul Falah Amtsilati.</div>
           </div>
 
           <div class="req-item">
@@ -1791,7 +1739,7 @@
           </h3>
           <div class="brosur-info-item">
             <strong>Pendaftaran dibuka setiap hari di:</strong>
-            Kantor Alhidayah Induk, Karangploso, Kabupaten Malang
+            Kantor Yayasan Amtsilati, Bangsri, Jepara
           </div>
           <div class="brosur-info-item">
             <strong>Atau melalui Pendaftaran Online:</strong>
@@ -2009,8 +1957,8 @@
           <div class="faq-answer">
             <div class="faq-answer-inner">
               <p>
-                Pendaftaran dibuka setiap hari secara langsung di Kantor Alhidayah Karangploso Kabupaten Malang, atau online melalui
-                <a href="https://psb.amtsilatipusat.com/brosur" target="_blank" rel="noopener">psb.alhidayah.com/brosur</a>.
+                Pendaftaran dibuka setiap hari secara langsung di Kantor Yayasan Amtsilati Bangsri Jepara, atau online melalui
+                <a href="https://psb.amtsilatipusat.com/brosur" target="_blank" rel="noopener">psb.amtsilatipusat.com/brosur</a>.
                 Untuk informasi durasi seleksi lebih lanjut, hubungi Contact Person resmi:
               </p>
               <ul>
@@ -2878,9 +2826,9 @@
       <div class="footer-main">
 
         <div class="footer-brand">
-          <div class="footer-org-name">YAYASAN TAMAN PENDIDIKAN ISLAM ALHIDAYAH</div>
-          <div class="footer-pesantren-name">PONDOK PESANTREN &quot;ALHIDAYAH INDUK&quot;</div>
-          <div class="footer-region">KArangploso, Kabupaten Malang, Jawa Timur</div>
+          <div class="footer-org-name">YAYASAN PENDIDIKAN ISLAM AMTSILATI</div>
+          <div class="footer-pesantren-name">PONDOK PESANTREN &quot;DARUL FALAH AMTSILATI&quot;</div>
+          <div class="footer-region">Bangsri, Jepara, Jawa Tengah</div>
 
           <div class="footer-block">
             <div class="footer-block-label">Sekretariat</div>
@@ -2918,7 +2866,7 @@
             </div>
             <div class="fb-body">
               <div class="fb-name">
-                PP. Alhidayah Induk
+                PP. Darul Falah Amtsilati
                 <svg viewBox="0 0 24 24" fill="#1877f2"><path d="M12 2 3 6v6c0 5.25 3.5 9.5 9 10 5.5-.5 9-4.75 9-10V6z"/><path d="M9.5 12.5 11.3 14l3.7-4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
               <div class="fb-meta">Sekolah Pesantren · @amtsilatipusat</div>
@@ -2940,8 +2888,8 @@
       </div>
 
       <div class="footer-bottom">
-        <p class="copyright">© Pondok Pesantren Alhidayah Induk 2026.</p>
-        <p class="dev-credit">Developed by: [Ibrahim]</p>
+        <p class="copyright">© Pondok Pesantren Darul Falah Amtsilati 2026.</p>
+        <p class="dev-credit">Developed by: [Nama Anda]</p>
       </div>
     </div>
   </footer>
