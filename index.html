@@ -86,20 +86,16 @@
   }
   .brand{ display:flex; align-items:center; gap:12px; min-width:0; }
   .brand-mark{
-    width:50px; height:50px; border-radius:50%; flex-shrink:0;
-    background:radial-gradient(circle at 32% 28%, var(--green-700), var(--green-900));
+    width:50px; height:50px; border-radius:50%; flex-shrink:0; overflow:hidden;
     display:flex; align-items:center; justify-content:center; position:relative;
-  }
-  .brand-mark::after{
-    content:''; position:absolute; inset:4px; border-radius:50%;
-    border:1.4px dashed var(--gold);
+    background:var(--white);
   }
   .brand-mark span{
-    font-family:var(--font-display); font-weight:800; color:var(--gold);
+    font-family:var(--font-display); font-weight:800; color:var(--green-800);
     font-size:1rem; letter-spacing:.5px; position:relative;
   }
   .brand-mark img{
-    width:100%; height:100%; object-fit:cover; border-radius:50%; position:relative;
+    width:100%; height:100%; object-fit:cover; border-radius:50%; position:relative; display:block;
   }
   .brand-text{
     font-family:var(--font-display); font-weight:700; font-size:.68rem;
@@ -1160,7 +1156,7 @@
   <header class="navbar">
     <div class="container">
       <a href="#home" class="brand" data-tab="home">
-        <div class="brand-mark"><img src="logo.png" alt="Logo Alhidayah" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span style="display:none;">YPI</span></div>
+        <div class="brand-mark"><img src="logo.png" alt="Logo Amtsilati" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span style="display:none;">YPI</span></div>
         <div class="brand-text">
           Panitia Penerimaan Santri Baru
           <b>Yayasan Pendidikan Islam Amtsilati</b>
