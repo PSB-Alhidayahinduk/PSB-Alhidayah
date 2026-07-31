@@ -2939,11 +2939,11 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    tabLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        switchTab(link.dataset.tab);
-      });
+    document.body.addEventListener('click', (e) => {
+      const link = e.target.closest('[data-tab]');
+      if (!link) return;
+      e.preventDefault();
+      switchTab(link.dataset.tab);
     });
 
     // ---------- Image slider / carousel ----------
