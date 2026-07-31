@@ -2933,6 +2933,10 @@
         const inner = item.querySelector('.faq-answer-inner');
         if (answer && inner) answer.style.maxHeight = inner.scrollHeight + 'px';
       });
+      // Penting: pindah ke atas supaya konten tab baru langsung terlihat,
+      // terutama saat tombol yang diklik posisinya di tengah/bawah halaman
+      // (mis. "Daftar Sekarang" di Hero) sementara section lama sudah disembunyikan.
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     tabLinks.forEach(link => {
