@@ -2940,7 +2940,7 @@
     }
 
     document.body.addEventListener('click', (e) => {
-      const link = e.target.closest('[data-tab]');
+      const link = e.target.closest('a[data-tab]');
       if (!link) return;
       e.preventDefault();
       switchTab(link.dataset.tab);
