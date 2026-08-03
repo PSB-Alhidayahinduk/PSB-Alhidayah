@@ -988,39 +988,38 @@
     text-transform:uppercase; letter-spacing:1.3px; color:var(--gold); margin-bottom:12px;
   }
 
-  .fb-widget{
+  .tiktok-widget{
     background:var(--white); border-radius:var(--radius-md); overflow:hidden;
     box-shadow:0 22px 46px rgba(0,0,0,.32); width:100%; max-width:320px;
   }
-  .fb-cover{ height:74px; background:linear-gradient(120deg, var(--green-700), var(--green-900)); position:relative; }
-  .fb-avatar{
+  .tiktok-cover{ height:74px; background:#010101; position:relative; }
+  .tiktok-cover::before{
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(circle at 20% 30%, rgba(37,244,238,.25), transparent 55%),
+               radial-gradient(circle at 75% 70%, rgba(254,44,85,.25), transparent 55%);
+  }
+  .tiktok-avatar{
     width:60px; height:60px; border-radius:50%; background:var(--white);
     border:3px solid var(--white); position:absolute; left:16px; bottom:-26px;
     display:flex; align-items:center; justify-content:center; overflow:hidden;
-    box-shadow:0 4px 10px rgba(0,0,0,.25);
+    box-shadow:0 4px 10px rgba(0,0,0,.25); z-index:1;
   }
-  .fb-avatar .brand-mark{ width:100%; height:100%; }
-  .fb-avatar .brand-mark span{ font-size:1.1rem; }
-  .fb-body{ padding:36px 18px 20px; }
-  .fb-name{
+  .tiktok-avatar .brand-mark{ width:100%; height:100%; }
+  .tiktok-avatar .brand-mark span{ font-size:1.1rem; }
+  .tiktok-body{ padding:36px 18px 20px; }
+  .tiktok-name{
     display:flex; align-items:center; gap:6px;
     font-family:var(--font-display); font-weight:700; font-size:.96rem; color:var(--ink);
   }
-  .fb-name svg{ width:15px; height:15px; flex-shrink:0; }
-  .fb-meta{ font-size:.76rem; color:var(--ink-soft); margin-top:2px; }
-  .fb-stats{ font-size:.8rem; color:var(--ink-soft); margin-top:11px; }
-  .fb-stats strong{ color:var(--ink); font-weight:700; }
-  .fb-actions{ display:flex; gap:8px; margin-top:16px; }
-  .fb-btn{
-    flex:1; display:flex; align-items:center; justify-content:center; gap:6px;
-    font-family:var(--font-display); font-weight:700; font-size:.82rem;
-    padding:9px 0; border-radius:6px; transition:.2s ease;
+  .tiktok-name svg{ width:15px; height:15px; flex-shrink:0; }
+  .tiktok-meta{ font-size:.78rem; color:var(--ink-soft); margin-top:3px; }
+  .tiktok-btn-follow{
+    display:flex; align-items:center; justify-content:center; gap:7px; margin-top:16px;
+    background:#010101; color:#fff; font-family:var(--font-display); font-weight:700;
+    font-size:.85rem; padding:10px 0; border-radius:8px; transition:.2s ease;
   }
-  .fb-btn svg{ width:13px; height:13px; }
-  .fb-btn-follow{ background:#1877f2; color:#fff; }
-  .fb-btn-follow:hover{ background:#0f5fcc; }
-  .fb-btn-share{ background:#e4e6eb; color:#050505; }
-  .fb-btn-share:hover{ background:#d8dade; }
+  .tiktok-btn-follow:hover{ background:#252525; }
+  .tiktok-btn-follow svg{ width:15px; height:15px; }
 
   .footer-bottom{
     border-top:1px solid rgba(255,255,255,.18); margin-top:52px; padding-top:22px; text-align:center;
@@ -1106,7 +1105,7 @@
     .footer-contact-list{ align-items:center; }
     .footer-contact-list li{ justify-content:center; }
     .footer-social{ align-items:center; margin-top:8px; }
-    .fb-widget{ max-width:340px; }
+    .tiktok-widget{ max-width:340px; }
 
     .section-brosur{ padding:56px 0 64px; }
     .brosur-grid{ margin-top:34px; }
@@ -2810,27 +2809,20 @@
 
         <div class="footer-social">
           <div class="footer-social-label">Media Sosial Kami</div>
-          <div class="fb-widget">
-            <div class="fb-cover">
-              <div class="fb-avatar"><div class="brand-mark"><img src="logo.png" alt="Logo Alhidayah" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span style="display:none;">YPI</span></div></div>
+          <div class="tiktok-widget">
+            <div class="tiktok-cover">
+              <div class="tiktok-avatar"><div class="brand-mark"><img src="logo.png" alt="Logo Alhidayah" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span style="display:none;">YPI</span></div></div>
             </div>
-            <div class="fb-body">
-              <div class="fb-name">
+            <div class="tiktok-body">
+              <div class="tiktok-name">
                 PP. Alhidayah Induk
                 <svg viewBox="0 0 24 24" fill="#1877f2"><path d="M12 2 3 6v6c0 5.25 3.5 9.5 9 10 5.5-.5 9-4.75 9-10V6z"/><path d="M9.5 12.5 11.3 14l3.7-4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <div class="fb-meta">Sekolah Pesantren · @amtsilatipusat</div>
-              <div class="fb-stats"><strong>12rb</strong> Suka · <strong>15rb</strong> Pengikut</div>
-              <div class="fb-actions">
-                <a class="fb-btn fb-btn-follow" href="#" target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-                  Ikuti Halaman
-                </a>
-                <a class="fb-btn fb-btn-share" href="#">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#050505" stroke-width="2"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4M12 2v14"/></svg>
-                  Bagikan
-                </a>
-              </div>
+              <div class="tiktok-meta">@pp.alhidayahinduk</div>
+              <a class="tiktok-btn-follow" href="https://www.tiktok.com/@pp.alhidayahinduk" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="#fff"><path d="M16.6 5.82a4.28 4.28 0 0 1-.24-1.4h-3.1v13.4a2.6 2.6 0 1 1-2.6-2.6c.28 0 .55.04.8.12v-3.14a5.72 5.72 0 0 0-.8-.06 5.72 5.72 0 1 0 5.72 5.72V9.4a7.36 7.36 0 0 0 4.3 1.38V7.68a4.28 4.28 0 0 1-4.08-1.86z"/></svg>
+                Ikuti di TikTok
+              </a>
             </div>
           </div>
         </div>
