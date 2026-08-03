@@ -3168,6 +3168,21 @@
         }
       });
 
+      // ---------- Preview nama file setelah dipilih (foto santri / foto KK) ----------
+      section.querySelectorAll('.file-upload').forEach((wrap) => {
+        const input = wrap.querySelector('input[type="file"]');
+        const filenameEl = wrap.querySelector('.file-upload-filename');
+        input.addEventListener('change', () => {
+          if (input.files && input.files.length > 0) {
+            wrap.classList.add('has-file');
+            filenameEl.textContent = '✓ ' + input.files[0].name;
+          } else {
+            wrap.classList.remove('has-file');
+            filenameEl.textContent = '';
+          }
+        });
+      });
+
       // ---------- Captcha canvas (independen per section) ----------
       let captchaCode = '';
       const captchaCanvas = section.querySelector('.captcha-canvas');
