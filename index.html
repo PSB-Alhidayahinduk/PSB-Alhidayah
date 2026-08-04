@@ -831,6 +831,8 @@
   .file-upload .file-upload-hint{ font-size:.72rem; color:var(--ink-soft); margin-top:3px; }
   .file-upload .file-upload-filename{ display:none; font-size:.78rem; color:var(--green-800); font-weight:600; margin-top:8px; }
   .file-upload.has-file{ border-style:solid; border-color:var(--check-green); background:rgba(47,191,113,.05); }
+  .file-upload.file-too-large{ border-style:solid; border-color:var(--red-bright); background:rgba(232,54,43,.05); }
+  .file-upload.file-too-large .file-upload-filename{ display:block; color:var(--red-bright); }
   .file-upload.has-file .file-upload-filename{ display:block; }
 
   .captcha-row{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
@@ -3164,17 +3166,28 @@
       });
 
       // ---------- Preview nama file setelah dipilih (foto santri / foto KK) ----------
+      const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
       section.querySelectorAll('.file-upload').forEach((wrap) => {
         const input = wrap.querySelector('input[type="file"]');
         const filenameEl = wrap.querySelector('.file-upload-filename');
         input.addEventListener('change', () => {
-          if (input.files && input.files.length > 0) {
-            wrap.classList.add('has-file');
-            filenameEl.textContent = '✓ ' + input.files[0].name;
-          } else {
-            wrap.classList.remove('has-file');
+          const file = input.files && input.files[0];
+          if (!file) {
+            wrap.classList.remove('has-file', 'file-too-large');
             filenameEl.textContent = '';
+            return;
           }
+          if (file.size > MAX_FILE_SIZE) {
+            input.value = ''; // batalkan pilihan file, tolak
+            wrap.classList.remove('has-file');
+            wrap.classList.add('file-too-large');
+            filenameEl.textContent =
+              `✕ Ukuran terlalu besar (${(file.size / 1024 / 1024).toFixed(1)}MB) — maksimal 2MB, silakan pilih file lain.`;
+            return;
+          }
+          wrap.classList.remove('file-too-large');
+          wrap.classList.add('has-file');
+          filenameEl.textContent = '✓ ' + file.name;
         });
       });
 
@@ -3325,7 +3338,7 @@
           formSubmitErrorEl.classList.remove('show');
           captchaErrorEl.classList.remove('show');
           section.querySelectorAll('.file-upload').forEach((wrap) => {
-            wrap.classList.remove('has-file');
+            wrap.classList.remove('has-file', 'file-too-large');
             wrap.querySelector('.file-upload-filename').textContent = '';
           });
           generateCaptcha();
