@@ -16,7 +16,7 @@ export const config = {
 
 function parseForm(req) {
   return new Promise((resolve, reject) => {
-    const form = formidable({ multiples: false, maxFileSize: 5 * 1024 * 1024 }); // maks 5MB per file
+    const form = formidable({ multiples: false, maxFileSize: 2 * 1024 * 1024 }); // maks 2MB per file
     form.parse(req, (err, fields, files) => {
       if (err) reject(err);
       else resolve({ fields, files });
