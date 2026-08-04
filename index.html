@@ -1156,9 +1156,9 @@
   <div class="topbar">
     <div class="container">
       <div class="topbar-left">
-        <a href="mailto:ppalhidayah25@gmail.com">
+        <a href="mailto:Amtsilati.pusat@gmail.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-          ppalhidayah25@gmail.com
+          Amtsilati.pusat@gmail.com
         </a>
       </div>
       <div class="topbar-right">
@@ -1222,19 +1222,23 @@
         <ul class="req-list">
           <li>
             <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span class="req-text">Program Baca Kitab Dengan Metode Amtsilati</span>
+            <span class="req-text">Bisa membaca Al-Qur'an, tulisan Arab, latin &amp; sudah mandiri</span>
           </li>
           <li>
             <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span class="req-text">Program Tahfidz: Membaca dan Menghafal Al-Quran 30 Juz</span>
+            <span class="req-text">Mengisi formulir pendaftaran secara online / offline</span>
           </li>
           <li>
             <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span class="req-text">Program Madrasah Quran</span>
+            <span class="req-text">Wajib datang sebelum pendaftaran offline ditutup</span>
           </li>
           <li>
             <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span class="req-text">Program Madarasah Diniyah</span>
+            <span class="req-text">Bagi lulusan cabang wajib membawa sertifikat kelulusan resmi dari Korwil</span>
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span class="req-text">Menyelesaikan biaya shodaqoh</span>
           </li>
         </ul>
 
@@ -2187,7 +2191,7 @@
               <input type="file" id="foto_kk" name="foto_kk" accept="image/*,.pdf">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
               <div class="file-upload-text">Klik atau seret berkas ke sini</div>
-              <div class="file-upload-hint">Format JPG/PNG/PDF, maks 5MB</div>
+              <div class="file-upload-hint">Format JPG/PNG/PDF, maks 2MB</div>
               <div class="file-upload-filename"></div>
             </label>
           </div>
@@ -2596,7 +2600,7 @@
               <input type="file" id="foto_kk_mi" name="foto_kk" accept="image/*,.pdf">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
               <div class="file-upload-text">Klik atau seret berkas ke sini</div>
-              <div class="file-upload-hint">Format JPG/PNG/PDF, maks 5MB</div>
+              <div class="file-upload-hint">Format JPG/PNG/PDF, maks 2MB</div>
               <div class="file-upload-filename"></div>
             </label>
           </div>
@@ -2797,7 +2801,7 @@
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-                <a href="mailto:ppalhidayah25@gmail.com">ppalhidayah25@gmail.com</a>
+                <a href="mailto:Amtsilati.pusat@gmail.com">Amtsilati.pusat@gmail.com</a>
               </li>
             </ul>
           </div>
@@ -2827,7 +2831,7 @@
 
       <div class="footer-bottom">
         <p class="copyright">© Pondok Pesantren Alhidayah Induk 2026.</p>
-        <p class="dev-credit">Developed by:@Ibrahim Hasan</p>
+        <p class="dev-credit">Developed by: [Nama Anda]</p>
       </div>
     </div>
   </footer>
@@ -3285,7 +3289,19 @@
               method: 'POST',
               body: new FormData(registrasiForm),
             });
-            const data = await res.json();
+
+            let data;
+            try {
+              data = await res.json();
+            } catch (parseErr) {
+              // Respons bukan JSON — biasanya karena Vercel menolak request sebelum sempat
+              // sampai ke kode kita (paling sering: ukuran file/foto yang di-upload kebesaran).
+              throw new Error(
+                res.status === 413
+                  ? 'Ukuran foto yang diunggah terlalu besar. Silakan gunakan foto dengan ukuran lebih kecil (di bawah 2MB per foto) lalu coba lagi.'
+                  : 'Server tidak merespons dengan benar. Coba lagi beberapa saat, atau gunakan foto dengan ukuran lebih kecil.'
+              );
+            }
 
             if (!res.ok || !data.success) {
               throw new Error(data.message || 'Gagal menyimpan data.');
