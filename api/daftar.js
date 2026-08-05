@@ -81,13 +81,13 @@ export default async function handler(req, res) {
       INSERT INTO pendaftar_santri
         (no_pendaftaran, pin, jenis_pondok, jenjang_pondok, foto_santri, nisn, nik, nama_lengkap,
          tempat_lahir, tanggal_lahir, jenis_kelamin, sekolah_asal, jenjang_sekolah_asal, alamat,
-         provinsi, kabupaten, kecamatan, kode_pos, nama_ayah, nik_ayah, pekerjaan_ayah, penghasilan_ayah,
-         nama_ibu, nik_ibu, pekerjaan_ibu, penghasilan_ibu, status_rumah, telepon_ortu, foto_kk)
+         provinsi, kabupaten, kecamatan, kode_pos, nama_ayah, nik_ayah, pekerjaan_ayah, penghasilan_ayah, status_ayah,
+         nama_ibu, nik_ibu, pekerjaan_ibu, penghasilan_ibu, status_ibu, status_rumah, telepon_ortu, foto_kk)
       VALUES
         ('PENDING', ${pin}, ${f('jenis_pondok')}, ${f('jenjang_pondok')}, ${fotoSantriUrl}, ${f('nisn')}, ${f('nik')}, ${f('nama_lengkap')},
          ${f('tempat_lahir')}, ${tanggalLahir}, ${f('jenis_kelamin')}, ${f('sekolah_asal')}, ${f('jenjang_sekolah_asal')}, ${f('alamat')},
-         ${f('provinsi')}, ${f('kabupaten')}, ${f('kecamatan')}, ${f('kode_pos')}, ${f('nama_ayah')}, ${f('nik_ayah')}, ${f('pekerjaan_ayah')}, ${f('penghasilan_ayah')},
-         ${f('nama_ibu')}, ${f('nik_ibu')}, ${f('pekerjaan_ibu')}, ${f('penghasilan_ibu')}, ${f('status_rumah')}, ${f('telepon_ortu')}, ${fotoKkUrl})
+         ${f('provinsi')}, ${f('kabupaten')}, ${f('kecamatan')}, ${f('kode_pos')}, ${f('nama_ayah')}, ${f('nik_ayah')}, ${f('pekerjaan_ayah')}, ${f('penghasilan_ayah')}, ${f('status_ayah')},
+         ${f('nama_ibu')}, ${f('nik_ibu')}, ${f('pekerjaan_ibu')}, ${f('penghasilan_ibu')}, ${f('status_ibu')}, ${f('status_rumah')}, ${f('telepon_ortu')}, ${fotoKkUrl})
       RETURNING id;
     `;
 
