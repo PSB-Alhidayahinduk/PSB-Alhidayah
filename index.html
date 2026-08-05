@@ -2147,6 +2147,15 @@
           </div>
 
           <div class="form-group">
+            <label class="form-label" for="status_ayah">Status Ayah</label>
+            <select class="form-select" id="status_ayah" name="status_ayah">
+              <option value="" selected disabled>Pilih status</option>
+              <option>Masih Hidup</option>
+              <option>Meninggal Dunia</option>
+            </select>
+          </div>
+
+          <div class="form-group">
             <label class="form-label" for="nama_ibu">Nama Lengkap Ibu (Huruf Kapital) <span class="req">*</span></label>
             <input class="form-input form-uppercase" type="text" id="nama_ibu" name="nama_ibu" placeholder="Contoh: SITI FULANAH" required>
           </div>
@@ -2174,6 +2183,15 @@
               <option>1.500.000 - 2.000.000</option>
               <option>2.000.000 - 3.000.000</option>
               <option>&lt; 4.000.000</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="status_ibu">Status Ibu</label>
+            <select class="form-select" id="status_ibu" name="status_ibu">
+              <option value="" selected disabled>Pilih status</option>
+              <option>Masih Hidup</option>
+              <option>Meninggal Dunia</option>
             </select>
           </div>
 
@@ -2556,6 +2574,15 @@
           </div>
 
           <div class="form-group">
+            <label class="form-label" for="status_ayah_mi">Status Ayah</label>
+            <select class="form-select" id="status_ayah_mi" name="status_ayah">
+              <option value="" selected disabled>Pilih status</option>
+              <option>Masih Hidup</option>
+              <option>Meninggal Dunia</option>
+            </select>
+          </div>
+
+          <div class="form-group">
             <label class="form-label" for="nama_ibu_mi">Nama Lengkap Ibu (Huruf Kapital) <span class="req">*</span></label>
             <input class="form-input form-uppercase" type="text" id="nama_ibu_mi" name="nama_ibu" placeholder="Contoh: SITI FULANAH" required>
           </div>
@@ -2583,6 +2610,15 @@
               <option>1.500.000 - 2.000.000</option>
               <option>2.000.000 - 3.000.000</option>
               <option>&lt; 4.000.000</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="status_ibu_mi">Status Ibu</label>
+            <select class="form-select" id="status_ibu_mi" name="status_ibu">
+              <option value="" selected disabled>Pilih status</option>
+              <option>Masih Hidup</option>
+              <option>Meninggal Dunia</option>
             </select>
           </div>
 
@@ -3040,10 +3076,12 @@
       nik_ayah: '3320011234560001',
       pekerjaan_ayah: 'Wiraswasta / Pedagang',
       penghasilan_ayah: '2.000.000 - 3.000.000',
+      status_ayah: 'Masih Hidup',
       nama_ibu: 'SITI FULANAH',
       nik_ibu: '3320019876540001',
       pekerjaan_ibu: 'Ibu Rumah Tangga',
       penghasilan_ibu: '1.000.000 - 1.500.000',
+      status_ibu: 'Masih Hidup',
       status_rumah: 'Milik Sendiri',
       telepon_ortu: '081234567890',
       foto_kk: null,
@@ -3072,10 +3110,12 @@
       { key: 'nik_ayah', label: 'NIK Ayah' },
       { key: 'pekerjaan_ayah', label: 'Pekerjaan Ayah' },
       { key: 'penghasilan_ayah', label: 'Penghasilan Ayah' },
+      { key: 'status_ayah', label: 'Status Ayah' },
       { key: 'nama_ibu', label: 'Nama Ibu' },
       { key: 'nik_ibu', label: 'NIK Ibu' },
       { key: 'pekerjaan_ibu', label: 'Pekerjaan Ibu' },
       { key: 'penghasilan_ibu', label: 'Penghasilan Ibu' },
+      { key: 'status_ibu', label: 'Status Ibu' },
       { key: 'status_rumah', label: 'Status Rumah' },
       { key: 'telepon_ortu', label: 'No. Telepon Orang Tua' },
       { key: 'foto_kk', label: 'Foto Kartu Keluarga', type: 'file' },
