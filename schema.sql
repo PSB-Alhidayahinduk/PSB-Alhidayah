@@ -40,10 +40,12 @@ CREATE TABLE IF NOT EXISTS pendaftar_santri (
   nik_ayah VARCHAR(16),
   pekerjaan_ayah VARCHAR(50),
   penghasilan_ayah VARCHAR(30),
+  status_ayah VARCHAR(30),
   nama_ibu VARCHAR(150) NOT NULL,
   nik_ibu VARCHAR(16),
   pekerjaan_ibu VARCHAR(50),
   penghasilan_ibu VARCHAR(30),
+  status_ibu VARCHAR(30),
   status_rumah VARCHAR(50),
   telepon_ortu VARCHAR(20) NOT NULL,
   foto_kk TEXT,                          -- URL file di Vercel Blob
